@@ -1,15 +1,47 @@
 @import "tailwindcss";
 
 :root {
+  /* AIOT Brand Colors */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a2332;
+
+  /* Navy Blue Palette */
+  --navy-50: #f0f4f8;
+  --navy-100: #d9e2ec;
+  --navy-500: #1a365d;
+  --navy-700: #2c5282;
+  --navy-900: #1a2332;
+
+  /* Cyan Accent Palette */
+  --cyan-50: #e6fffa;
+  --cyan-100: #b2f5ea;
+  --cyan-400: #33e8e8;
+  --cyan-500: #00d4d4;
+  --cyan-600: #00a5a5;
+  --cyan-700: #0987a0;
+  --cyan-900: #005266;
+
+  /* Supporting Colors */
+  --gray-50: #f8f9fa;
+  --gray-100: #e9ecef;
+  --gray-400: #adb5bd;
+  --gray-700: #495057;
+  --gray-900: #343a40;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-navy-900: var(--navy-900);
+  --color-cyan-500: var(--cyan-500);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* AIOT Custom Colors */
+  --color-primary: var(--navy-900);
+  --color-accent: var(--cyan-500);
+  --color-primary-*: initial;
+  --color-accent-*: initial;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +54,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }

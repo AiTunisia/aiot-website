@@ -536,7 +536,7 @@ export default function Home() {
 
           <div className="mt-12 text-center p-8 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl border border-cyan-200">
             <p className="text-gray-700 mb-4 text-lg">
-              Still have questions? We're here to help!
+              Still have questions? We&apos;re here to help!
             </p>
             <MagneticButton href="#contact" variant="primary">
               Contact Us

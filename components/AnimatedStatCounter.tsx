@@ -8,7 +8,6 @@ interface AnimatedStatCounterProps {
   suffix?: string;
   prefix?: string;
   label: string;
-  duration?: number;
 }
 
 export default function AnimatedStatCounter({
@@ -16,7 +15,6 @@ export default function AnimatedStatCounter({
   suffix = "",
   prefix = "",
   label,
-  duration = 2,
 }: AnimatedStatCounterProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });

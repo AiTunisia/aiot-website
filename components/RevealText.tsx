@@ -40,7 +40,7 @@ export default function RevealText({
       y: 0,
       filter: "blur(0px)",
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 12,
         stiffness: 100,
       },
@@ -50,7 +50,7 @@ export default function RevealText({
       y: 20,
       filter: "blur(4px)",
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 12,
         stiffness: 100,
       },

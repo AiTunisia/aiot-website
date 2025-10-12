@@ -9,7 +9,6 @@ import StaggeredCards from "../components/StaggeredCards";
 import AnimatedHero from "../components/AnimatedHero";
 import MagneticButton from "../components/MagneticButton";
 import RevealText from "../components/RevealText";
-import GlassMorphicCard from "../components/GlassMorphicCard";
 
 // FAQ Accordion Item Component
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -500,14 +499,14 @@ export default function Home() {
               Frequently Asked Questions
             </RevealText>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Everything you need to know about AIOT's industrial IoT solutions
+              Everything you need to know about AIOT&apos;s industrial IoT solutions
             </p>
           </AnimatedSection>
 
           <div className="space-y-4">
             {[
               {
-                q: "What industries do AIOT's IoT solutions serve, and are they customizable for our specific needs?",
+                q: "What industries do AIOT&apos;s IoT solutions serve, and are they customizable for our specific needs?",
                 a: "AIOT specializes in industrial IoT solutions for medical facilities, pharmaceutical manufacturing, agriculture operations, and transport logistics. Each solution is fully customizable to your operational requirements, regulatory environment, and existing infrastructure. Our development approach begins with a detailed assessment of your use case to ensure our IoT platform integrates seamlessly with your workflows and delivers measurable outcomes specific to your industry challenges."
               },
               {
@@ -523,8 +522,8 @@ export default function Home() {
                 a: "Data security is fundamental to our architecture. We implement end-to-end encryption for all data transmission, secure cloud infrastructure with ISO 27001-compliant hosting partners, role-based access controls, and regular security audits. For sensitive pharmaceutical and medical applications, we offer on-premises deployment options and hybrid architectures that keep critical data within your controlled environment. All solutions include comprehensive data backup, disaster recovery protocols, and compliance with GDPR and industry-specific data protection requirements."
               },
               {
-                q: "Can AIOT's solutions integrate with our existing ERP, MES, or legacy systems?",
-                a: "Yes, system integration is a core capability. AIOT's IoT platform supports standard industrial protocols (OPC UA, Modbus, MQTT, REST APIs) and can interface with major ERP systems (SAP, Oracle, Microsoft Dynamics), manufacturing execution systems, and legacy equipment. We conduct pre-implementation integration assessments to identify compatibility requirements and develop custom connectors when needed. Our goal is seamless data flow between your IoT infrastructure and existing business systems without disrupting current operations."
+                q: "Can AIOT&apos;s solutions integrate with our existing ERP, MES, or legacy systems?",
+                a: "Yes, system integration is a core capability. AIOT&apos;s IoT platform supports standard industrial protocols (OPC UA, Modbus, MQTT, REST APIs) and can interface with major ERP systems (SAP, Oracle, Microsoft Dynamics), manufacturing execution systems, and legacy equipment. We conduct pre-implementation integration assessments to identify compatibility requirements and develop custom connectors when needed. Our goal is seamless data flow between your IoT infrastructure and existing business systems without disrupting current operations."
               },
               {
                 q: "What is the typical ROI timeline for an AIOT IoT implementation?",

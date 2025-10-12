@@ -43,7 +43,6 @@ export default function StaggeredCards({
   className = "",
 }: StaggeredCardsProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <div ref={ref} className={className}>

@@ -1,15 +1,23 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -69,10 +77,64 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AIOT",
+    "description": "Industrial IoT solutions provider delivering real-time monitoring, data analytics, and connectivity for medical, pharmaceutical, agriculture, and transport industries",
+    "url": "https://aiot-solutions.tn",
+    "logo": "https://aiot-solutions.tn/images/logo/AIOT-logo-2025.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sousse",
+      "addressCountry": "TN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+216-92-214-755",
+      "contactType": "sales",
+      "areaServed": ["TN", "DZ", "MA", "LY"],
+      "availableLanguage": ["Arabic", "French", "English"]
+    },
+    "sameAs": []
+  };
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "TechnologyCompany",
+    "name": "AIOT",
+    "description": "GMP/GDP-compliant IoT monitoring solutions for regulated industries",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sousse",
+      "addressRegion": "Sousse",
+      "addressCountry": "Tunisia"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "35.8256",
+      "longitude": "10.6369"
+    },
+    "telephone": "+216-92-214-755",
+    "priceRange": "$$",
+    "openingHours": "Mo-Fr 09:00-18:00"
+  };
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased font-sans`}
+        style={{ fontFamily: 'var(--font-inter), sans-serif' }}
       >
         {children}
       </body>

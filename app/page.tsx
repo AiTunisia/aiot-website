@@ -2,6 +2,14 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import ScrollProgress from "../components/ScrollProgress";
+import AnimatedSection from "../components/AnimatedSection";
+import AnimatedStatCounter from "../components/AnimatedStatCounter";
+import StaggeredCards from "../components/StaggeredCards";
+import AnimatedHero from "../components/AnimatedHero";
+import MagneticButton from "../components/MagneticButton";
+import RevealText from "../components/RevealText";
+import GlassMorphicCard from "../components/GlassMorphicCard";
 
 // FAQ Accordion Item Component
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -57,6 +65,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      {/* Scroll Progress Bar */}
+      <ScrollProgress />
+
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a2332]/95 backdrop-blur-md border-b border-cyan-500/20 shadow-lg">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -66,13 +77,12 @@ export default function Home() {
                 <Image
                   src="/images/logo/AIOT-logo-2025.png"
                   alt="AIOT"
-                  width={65}
-                  height={65}
+                  width={85}
+                  height={85}
                   className="rounded-lg"
                 />
                 <div className="absolute inset-0 bg-cyan-500/20 rounded-lg blur-md -z-10"></div>
               </div>
-              <span className="text-white text-xl font-bold bg-gradient-to-r from-cyan-500 to-cyan-400 bg-clip-text text-transparent">AIOT</span>
             </div>
 
             {/* Desktop Navigation */}
@@ -160,45 +170,55 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-[#1a2332] via-[#0d1520] to-[#1a2332] pt-16 overflow-hidden">
-        {/* Floating Geometric Shapes */}
-        <div className="absolute top-20 left-10 w-32 h-32 border-2 border-cyan-500/20 rounded-full blur-sm"></div>
-        <div className="absolute bottom-20 right-10 w-48 h-48 border-2 border-cyan-500/10 rounded-full blur-sm"></div>
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20">
+      <AnimatedHero className="min-h-screen flex items-center pt-16 overflow-hidden">
+        <section id="home" className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-                Intelligent IoT Solutions for <span className="bg-gradient-to-r from-cyan-500 to-cyan-400 bg-clip-text text-transparent">Multiple Industries</span>
-              </h1>
+              <RevealText
+                as="h1"
+                className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
+                style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' } as React.CSSProperties}
+              >
+                Intelligent IoT Solutions for Multiple Industries
+              </RevealText>
               <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
                 Tunisia-based expertise delivering industrial sensors, data analytics, and connectivity solutions
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <a href="#prototype" className="bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-600 hover:to-cyan-500 text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:scale-105">
+                <MagneticButton href="#prototype" variant="primary">
                   Explore Our Prototype
-                </a>
-                <a href="#contact" className="bg-white/5 backdrop-blur-md border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300">
+                </MagneticButton>
+                <MagneticButton href="#contact" variant="secondary">
                   Get in Touch
-                </a>
+                </MagneticButton>
               </div>
             </div>
             <div className="flex justify-center lg:justify-end">
               <div className="relative animate-[float_6s_ease-in-out_infinite]">
-                <div className="relative">
-                  <Image
-                    src="/images/logo/AIOT-logo-2025.png"
-                    alt="AIOT Logo"
-                    width={400}
-                    height={400}
-                    className="rounded-xl"
-                  />
-                  <div className="absolute inset-0 shadow-[0_0_60px_rgba(0,212,212,0.5)] rounded-xl -z-10"></div>
-                </div>
-              </div>
+  <div className="relative">
+    <Image
+      src="/images/logo/AIOT-logo-2025.png"
+      alt="AIOT Logo"
+      width={400}
+      height={400}
+    />
+    <div className="absolute inset-0 bg-gradient-radial from-cyan-400/40 to-transparent blur-2xl -z-10 rounded-full"></div>
+  </div>
+</div>
+
             </div>
+          </div>
+        </section>
+      </AnimatedHero>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <AnimatedStatCounter value={99.9} suffix="%" label="Uptime Reliability" />
+            <AnimatedStatCounter value={50} suffix="+" label="Sensor Types" />
+            <AnimatedStatCounter value={4} label="Industries Served" />
+            <AnimatedStatCounter value={24} suffix="/7" label="Monitoring" />
           </div>
         </div>
       </section>
@@ -207,17 +227,22 @@ export default function Home() {
       <section id="industries" className="py-20 bg-gradient-to-br from-gray-50 to-white relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-navy-900 mb-6">
-              Multi-Industry <span className="bg-gradient-to-r from-cyan-500 to-cyan-400 bg-clip-text text-transparent">IoT Solutions</span>
-            </h2>
+            <RevealText
+              as="h2"
+              className="text-4xl md:text-5xl font-bold text-navy-900 mb-6"
+              style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' } as React.CSSProperties}
+            >
+              Multi-Industry IoT Solutions
+            </RevealText>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Empowering diverse sectors with intelligent monitoring and connectivity
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Medical */}
-            <div className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl shadow-xl">
+          <StaggeredCards className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+            /* Medical */
+            <div key="medical" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <span className="text-3xl">🏥</span>
               </div>
@@ -241,8 +266,8 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* Pharmaceutical */}
-            <div className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl shadow-xl">
+            /* Pharmaceutical */
+            ,<div key="pharma" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <span className="text-3xl">💊</span>
               </div>
@@ -266,8 +291,8 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* Agriculture */}
-            <div className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl shadow-xl">
+            /* Agriculture */
+            ,<div key="agriculture" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <span className="text-3xl">🌾</span>
               </div>
@@ -291,8 +316,8 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* Transport */}
-            <div className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl shadow-xl">
+            /* Transport */
+            ,<div key="transport" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <span className="text-3xl">🚚</span>
               </div>
@@ -315,7 +340,8 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-          </div>
+            ]}
+          </StaggeredCards>
         </div>
       </section>
 
@@ -326,14 +352,18 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Our Core <span className="bg-gradient-to-r from-cyan-500 to-cyan-400 bg-clip-text text-transparent">Solutions</span>
-            </h2>
+          <AnimatedSection variant="fadeIn" className="text-center mb-16">
+            <RevealText
+              as="h2"
+              className="text-4xl md:text-5xl font-bold text-white mb-6"
+              style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' } as React.CSSProperties}
+            >
+              Our Core Solutions
+            </RevealText>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Comprehensive IoT platform for industrial monitoring and analytics
             </p>
-          </div>
+          </AnimatedSection>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl shadow-xl relative overflow-hidden group">
@@ -385,31 +415,41 @@ export default function Home() {
         <div className="absolute bottom-10 right-10 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          <div className="text-center bg-white/80 backdrop-blur-md border-2 border-cyan-500/20 rounded-2xl p-12 shadow-xl">
-            <div className="inline-block px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full mb-6">
-              <span className="text-cyan-600 font-semibold text-sm">🚀 In Development</span>
+          <AnimatedSection variant="scale">
+            <div className="text-center bg-white/80 backdrop-blur-md border-2 border-cyan-500/20 rounded-2xl p-12 shadow-xl">
+              <div className="inline-block px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full mb-6">
+                <span className="text-cyan-600 font-semibold text-sm">🚀 In Development</span>
+              </div>
+              <RevealText
+                as="h2"
+                className="text-4xl md:text-5xl font-bold text-[#1a2332] mb-6"
+                style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' } as React.CSSProperties}
+              >
+                Our First Product Prototype
+              </RevealText>
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+                Currently developing our flagship IoT monitoring solution with real-world applications across multiple industries
+              </p>
+              <MagneticButton href="#contact" variant="primary">
+                Request a Demo
+              </MagneticButton>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1a2332] mb-6">
-              Our First Product <span className="bg-gradient-to-r from-cyan-500 to-cyan-400 bg-clip-text text-transparent">Prototype</span>
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
-              Currently developing our flagship IoT monitoring solution with real-world applications across multiple industries
-            </p>
-            <a href="#contact" className="inline-block bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-600 hover:to-cyan-500 text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:scale-105 animate-[pulse_2s_ease-in-out_infinite]">
-              Request a Demo
-            </a>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Tunisia Advantage */}
       <section id="about" className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1a2332] mb-6">
-              Why <span className="bg-gradient-to-r from-cyan-500 to-cyan-400 bg-clip-text text-transparent">Tunisia</span>?
-            </h2>
-          </div>
+          <AnimatedSection variant="slideUp" className="text-center mb-16">
+            <RevealText
+              as="h2"
+              className="text-4xl md:text-5xl font-bold text-[#1a2332] mb-6"
+              style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' } as React.CSSProperties}
+            >
+              Why Tunisia?
+            </RevealText>
+          </AnimatedSection>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center group">
@@ -448,17 +488,21 @@ export default function Home() {
       {/* FAQ Section */}
       <section id="faq" className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
+          <AnimatedSection variant="slideUp" className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full mb-6">
               <span className="text-cyan-600 font-semibold text-sm">💡 Support</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1a2332] mb-6">
-              Frequently Asked <span className="bg-gradient-to-r from-cyan-500 to-cyan-400 bg-clip-text text-transparent">Questions</span>
-            </h2>
+            <RevealText
+              as="h2"
+              className="text-4xl md:text-5xl font-bold text-[#1a2332] mb-6"
+              style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' } as React.CSSProperties}
+            >
+              Frequently Asked Questions
+            </RevealText>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Everything you need to know about AIOT's industrial IoT solutions
             </p>
-          </div>
+          </AnimatedSection>
 
           <div className="space-y-4">
             {[
@@ -495,12 +539,9 @@ export default function Home() {
             <p className="text-gray-700 mb-4 text-lg">
               Still have questions? We're here to help!
             </p>
-            <a
-              href="#contact"
-              className="inline-block bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-semibold px-8 py-3 rounded-xl shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:scale-105"
-            >
+            <MagneticButton href="#contact" variant="primary">
               Contact Us
-            </a>
+            </MagneticButton>
           </div>
         </div>
       </section>

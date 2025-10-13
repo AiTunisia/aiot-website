@@ -9,6 +9,7 @@ import StaggeredCards from "../components/StaggeredCards";
 import AnimatedHero from "../components/AnimatedHero";
 import MagneticButton from "../components/MagneticButton";
 import RevealText from "../components/RevealText";
+import { Heart, Pill, Wheat, Truck, Snowflake, Bot, Factory, Radio, BarChart3, Link, Rocket, Target, Lightbulb, Globe, Phone, MapPin } from "lucide-react";
 
 // FAQ Accordion Item Component
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -90,12 +91,12 @@ export default function Home() {
                 Home
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full"></span>
               </a>
-              <a href="#solutions" className="text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group">
-                Solutions
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full"></span>
-              </a>
               <a href="#industries" className="text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group">
                 Industries
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <a href="#solutions" className="text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group">
+                Solutions
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full"></span>
               </a>
               <a href="#about" className="text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group">
@@ -136,18 +137,18 @@ export default function Home() {
                 Home
               </a>
               <a
-                href="#solutions"
-                onClick={closeMenu}
-                className="block text-gray-300 hover:text-cyan-400 transition-colors py-2"
-              >
-                Solutions
-              </a>
-              <a
                 href="#industries"
                 onClick={closeMenu}
                 className="block text-gray-300 hover:text-cyan-400 transition-colors py-2"
               >
                 Industries
+              </a>
+              <a
+                href="#solutions"
+                onClick={closeMenu}
+                className="block text-gray-300 hover:text-cyan-400 transition-colors py-2"
+              >
+                Solutions
               </a>
               <a
                 href="#about"
@@ -216,7 +217,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <AnimatedStatCounter value={99.9} suffix="%" label="Uptime Reliability" />
             <AnimatedStatCounter value={50} suffix="+" label="Sensor Types" />
-            <AnimatedStatCounter value={4} label="Industries Served" />
+            <AnimatedStatCounter value={7} label="Industries Served" />
             <AnimatedStatCounter value={24} suffix="/7" label="Monitoring" />
           </div>
         </div>
@@ -238,12 +239,12 @@ export default function Home() {
             </p>
           </div>
 
-          <StaggeredCards className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <StaggeredCards className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
             /* Medical */
             <div key="medical" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                <span className="text-3xl">🏥</span>
+                <Heart className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-navy-900 mb-4">Medical</h3>
               <p className="text-gray-700 mb-4">
@@ -268,7 +269,7 @@ export default function Home() {
             /* Pharmaceutical */
             ,<div key="pharma" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                <span className="text-3xl">💊</span>
+                <Pill className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-navy-900 mb-4">Pharmaceutical</h3>
               <p className="text-gray-700 mb-4">
@@ -293,7 +294,7 @@ export default function Home() {
             /* Agriculture */
             ,<div key="agriculture" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                <span className="text-3xl">🌾</span>
+                <Wheat className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-navy-900 mb-4">Agriculture</h3>
               <p className="text-gray-700 mb-4">
@@ -318,7 +319,7 @@ export default function Home() {
             /* Transport */
             ,<div key="transport" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                <span className="text-3xl">🚚</span>
+                <Truck className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-navy-900 mb-4">Transport</h3>
               <p className="text-gray-700 mb-4">
@@ -336,6 +337,81 @@ export default function Home() {
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
                   Vehicle diagnostics
+                </li>
+              </ul>
+            </div>
+
+            /* Cold Chain */
+            ,<div key="cold-chain" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
+              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                <Snowflake className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-navy-900 mb-4">Cold Chain</h3>
+              <p className="text-gray-700 mb-4">
+                Temperature-controlled logistics and cold storage monitoring solutions
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
+                  Real-time temperature tracking
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
+                  Cold storage compliance
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
+                  Vaccine & pharma transport
+                </li>
+              </ul>
+            </div>
+
+            /* Robotic */
+            ,<div key="robotic" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
+              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                <Bot className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-navy-900 mb-4">Robotic</h3>
+              <p className="text-gray-700 mb-4">
+                Industrial automation and collaborative robotics monitoring systems
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
+                  Robot fleet management
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
+                  Performance analytics
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
+                  Predictive maintenance
+                </li>
+              </ul>
+            </div>
+
+            /* Industry 4.0 */
+            ,<div key="industry4" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
+              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+                <Factory className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-navy-900 mb-4">Industry 4.0</h3>
+              <p className="text-gray-700 mb-4">
+                Smart manufacturing and digital transformation for modern factories
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
+                  Smart factory integration
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
+                  Production optimization
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
+                  Digital twin monitoring
                 </li>
               </ul>
             </div>
@@ -369,7 +445,7 @@ export default function Home() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all duration-300"></div>
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/30">
-                  <span className="text-3xl">📡</span>
+                  <Radio className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">Industrial Sensors</h3>
                 <p className="text-gray-300">
@@ -382,7 +458,7 @@ export default function Home() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all duration-300"></div>
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/30">
-                  <span className="text-3xl">📊</span>
+                  <BarChart3 className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">Data Analytics</h3>
                 <p className="text-gray-300">
@@ -395,7 +471,7 @@ export default function Home() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all duration-300"></div>
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/30">
-                  <span className="text-3xl">🔗</span>
+                  <Link className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">Connectivity Solutions</h3>
                 <p className="text-gray-300">
@@ -417,7 +493,7 @@ export default function Home() {
           <AnimatedSection variant="scale">
             <div className="text-center bg-white/80 backdrop-blur-md border-2 border-cyan-500/20 rounded-2xl p-12 shadow-xl">
               <div className="inline-block px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full mb-6">
-                <span className="text-cyan-600 font-semibold text-sm">🚀 In Development</span>
+                <span className="text-cyan-600 font-semibold text-sm flex items-center gap-2 justify-center"><Rocket className="w-4 h-4" /> In Development</span>
               </div>
               <RevealText
                 as="h2"
@@ -453,7 +529,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center group">
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-cyan-500/50 group-hover:scale-110 transition-transform duration-300">
-                <span className="text-4xl">🎯</span>
+                <Target className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-[#1a2332] mb-4">Strategic Location</h3>
               <p className="text-gray-700">
@@ -463,7 +539,7 @@ export default function Home() {
 
             <div className="text-center group">
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-cyan-500/50 group-hover:scale-110 transition-transform duration-300">
-                <span className="text-4xl">💡</span>
+                <Lightbulb className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-[#1a2332] mb-4">Innovation Hub</h3>
               <p className="text-gray-700">
@@ -473,7 +549,7 @@ export default function Home() {
 
             <div className="text-center group">
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-cyan-500/50 group-hover:scale-110 transition-transform duration-300">
-                <span className="text-4xl">🌍</span>
+                <Globe className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-[#1a2332] mb-4">Global Reach</h3>
               <p className="text-gray-700">
@@ -489,7 +565,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
           <AnimatedSection variant="slideUp" className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full mb-6">
-              <span className="text-cyan-600 font-semibold text-sm">💡 Support</span>
+              <span className="text-cyan-600 font-semibold text-sm flex items-center gap-2 justify-center"><Lightbulb className="w-4 h-4" /> Support</span>
             </div>
             <RevealText
               as="h2"
@@ -727,8 +803,8 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-cyan-400">Contact</h4>
               <ul className="space-y-2 text-gray-400">
-                <li className="hover:text-cyan-400 transition-colors">📞 +216 92 214 755</li>
-                <li className="hover:text-cyan-400 transition-colors">📍 Sousse, Tunisia</li>
+                <li className="hover:text-cyan-400 transition-colors flex items-center gap-2"><Phone className="w-4 h-4" /> +216 92 214 755</li>
+                <li className="hover:text-cyan-400 transition-colors flex items-center gap-2"><MapPin className="w-4 h-4" /> Sousse, Tunisia</li>
               </ul>
             </div>
           </div>

@@ -22,11 +22,12 @@ function FloatingParticle({ index }: ParticleProps) {
       style={{
         left: `${randomX}%`,
         top: `${randomY}%`,
+        willChange: "transform, opacity",
       }}
       animate={{
-        y: [0, -30, 0],
-        x: [0, 15, 0],
-        opacity: [0.2, 0.5, 0.2],
+        y: [0, -25, 0],
+        x: [0, 12, 0],
+        opacity: [0.2, 0.4, 0.2],
       }}
       transition={{
         duration: randomDuration,
@@ -55,12 +56,13 @@ export default function AnimatedHero({ children, className = "" }: AnimatedHeroP
         <div className="absolute inset-0 tech-grid-background opacity-30"></div>
         <div className="grid-scan"></div>
 
-        {/* Layer 3: Gradient orbs */}
+        {/* Layer 3: Gradient orb (optimized - reduced from 2 to 1, smaller blur) */}
         <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-[120px]"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"
+          style={{ willChange: "transform, opacity" }}
           animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.4, 0.2],
+            scale: [1, 1.2, 1],
+            opacity: [0.15, 0.3, 0.15],
           }}
           transition={{
             duration: 8,
@@ -68,53 +70,11 @@ export default function AnimatedHero({ children, className = "" }: AnimatedHeroP
             ease: "easeInOut",
           }}
         />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[120px]"
-          animate={{
-            scale: [1, 1.4, 1],
-            opacity: [0.2, 0.3, 0.2],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-        />
 
-        {/* Layer 4: Floating Particles (reduced to 15) */}
-        {[...Array(15)].map((_, i) => (
+        {/* Layer 4: Floating Particles (optimized - reduced from 15 to 5) */}
+        {[...Array(5)].map((_, i) => (
           <FloatingParticle key={i} index={i} />
         ))}
-
-        {/* Layer 5: Geometric Shapes */}
-        <motion.div
-          className="absolute top-20 left-10 w-32 h-32 border-2 border-cyan-500/20 rounded-full blur-sm"
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-
-        <motion.div
-          className="absolute bottom-20 right-10 w-48 h-48 border-2 border-cyan-500/10 rounded-full blur-sm"
-          animate={{
-            scale: [1, 1.3, 1],
-            rotate: [360, 180, 0],
-            opacity: [0.1, 0.3, 0.1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
       </div>
 
       {/* Content with animation */}

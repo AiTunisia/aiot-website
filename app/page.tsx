@@ -75,11 +75,12 @@ export default function Home() {
             <div className="flex items-center gap-3">
               <div className="relative">
                 <Image
-                  src="/images/logo/AIOT-logo-2025.png"
+                  src="/images/logo/AIOT-logo-2025.webp"
                   alt="AIOT"
                   width={85}
                   height={85}
                   className="rounded-lg"
+                  priority
                 />
                 <div className="absolute inset-0 bg-cyan-500/20 rounded-lg blur-md -z-10"></div>
               </div>
@@ -178,6 +179,7 @@ export default function Home() {
                 as="h1"
                 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
                 style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' } as React.CSSProperties}
+                animateWords={true}
               >
                 Intelligent IoT Solutions for Multiple Industries
               </RevealText>
@@ -197,7 +199,7 @@ export default function Home() {
               <div className="relative animate-[float_6s_ease-in-out_infinite]">
   <div className="relative">
     <Image
-      src="/images/logo/AIOT-logo-2025.png"
+      src="/images/logo/AIOT-logo-2025.webp"
       alt="AIOT Logo"
       width={400}
       height={400}

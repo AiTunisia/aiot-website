@@ -199,3 +199,60 @@ html {
   pointer-events: none;
   mix-blend-mode: overlay;
 }
+
+/* Mobile Performance Optimizations */
+@media (max-width: 1023px) {
+  /* Replace backdrop-blur with solid backgrounds on mobile */
+  .backdrop-blur-md {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Make backgrounds more opaque to compensate for removed blur */
+  .bg-white\/70 {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+  }
+
+  .bg-white\/5 {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .bg-white\/80 {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+  }
+
+  .bg-white\/95 {
+    background-color: rgba(255, 255, 255, 1) !important;
+  }
+
+  .bg-\[#1a2332\]\/95 {
+    background-color: #1a2332 !important;
+  }
+}
+
+/* GPU Acceleration Hints */
+.transform-gpu {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Contain Layout for Isolated Components */
+.contain-layout {
+  contain: layout style paint;
+}
+
+/* Optimize for high-frequency animations */
+.will-change-transform {
+  will-change: transform, opacity;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

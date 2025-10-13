@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { ReactNode, useRef } from "react";
+import { ReactNode, useRef, useState, useEffect } from "react";
 
 interface MagneticButtonProps {
   children: ReactNode;
@@ -19,13 +19,25 @@ export default function MagneticButton({
   const ref = useRef<HTMLAnchorElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const springConfig = { damping: 20, stiffness: 300 };
   const springX = useSpring(x, springConfig);
   const springY = useSpring(y, springConfig);
 
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!ref.current) return;
+    // Disable magnetic effect on mobile
+    if (isMobile || !ref.current) return;
 
     const rect = ref.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
@@ -60,9 +72,9 @@ export default function MagneticButton({
       whileHover="hover"
       whileTap="tap"
     >
-      {variant === "primary" && (
+      {variant === "primary" && !isMobile && (
         <>
-          {/* Animated gradient overlay */}
+          {/* Animated gradient overlay - Desktop only */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0"
             variants={{
@@ -71,7 +83,7 @@ export default function MagneticButton({
             transition={{ duration: 0.4 }}
           />
 
-          {/* Shine effect */}
+          {/* Shine effect - Desktop only */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
             variants={{
@@ -80,7 +92,7 @@ export default function MagneticButton({
             transition={{ duration: 0.6, ease: "easeInOut" }}
           />
 
-          {/* Glow effect */}
+          {/* Glow effect - Desktop only */}
           <motion.div
             className="absolute inset-0 opacity-0 blur-xl"
             style={{

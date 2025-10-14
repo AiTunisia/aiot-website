@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView, Variants } from "framer-motion";
-import { useRef, ReactNode } from "react";
+import { useRef, ReactNode, useState, useEffect } from "react";
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -10,7 +10,8 @@ interface AnimatedSectionProps {
   variant?: "fadeIn" | "slideUp" | "slideLeft" | "slideRight" | "scale";
 }
 
-const variants: Record<string, Variants> = {
+// Desktop variants - full movement
+const variantsDesktop: Record<string, Variants> = {
   fadeIn: {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
@@ -33,6 +34,30 @@ const variants: Record<string, Variants> = {
   },
 };
 
+// Mobile variants - reduced movement
+const variantsMobile: Record<string, Variants> = {
+  fadeIn: {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  },
+  slideUp: {
+    hidden: { opacity: 0, y: 25 },
+    visible: { opacity: 1, y: 0 },
+  },
+  slideLeft: {
+    hidden: { opacity: 0, x: 25 },
+    visible: { opacity: 1, x: 0 },
+  },
+  slideRight: {
+    hidden: { opacity: 0, x: -25 },
+    visible: { opacity: 1, x: 0 },
+  },
+  scale: {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { opacity: 1, scale: 1 },
+  },
+};
+
 export default function AnimatedSection({
   children,
   className = "",
@@ -41,6 +66,20 @@ export default function AnimatedSection({
 }: AnimatedSectionProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const variants = isMobile ? variantsMobile : variantsDesktop;
+  const duration = isMobile ? 0.35 : 0.6;
 
   return (
     <motion.div
@@ -49,9 +88,9 @@ export default function AnimatedSection({
       animate={isInView ? "visible" : "hidden"}
       variants={variants[variant]}
       transition={{
-        duration: 0.6,
+        duration: duration,
         delay,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: isMobile ? "easeOut" : [0.25, 0.46, 0.45, 0.94],
       }}
       className={className}
     >

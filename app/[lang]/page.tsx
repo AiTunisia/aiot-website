@@ -2,13 +2,15 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import ScrollProgress from "../components/ScrollProgress";
-import AnimatedSection from "../components/AnimatedSection";
-import AnimatedStatCounter from "../components/AnimatedStatCounter";
-import StaggeredCards from "../components/StaggeredCards";
-import AnimatedHero from "../components/AnimatedHero";
-import MagneticButton from "../components/MagneticButton";
-import RevealText from "../components/RevealText";
+import { useTranslations } from 'next-intl';
+import ScrollProgress from "../../components/ScrollProgress";
+import AnimatedSection from "../../components/AnimatedSection";
+import AnimatedStatCounter from "../../components/AnimatedStatCounter";
+import StaggeredCards from "../../components/StaggeredCards";
+import AnimatedHero from "../../components/AnimatedHero";
+import MagneticButton from "../../components/MagneticButton";
+import RevealText from "../../components/RevealText";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
 import { Heart, Pill, Wheat, Truck, Snowflake, Bot, Factory, Radio, BarChart3, Link, Rocket, Target, Lightbulb, Globe, Phone, MapPin } from "lucide-react";
 
 // FAQ Accordion Item Component
@@ -60,6 +62,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const t = useTranslations();
 
   const closeMenu = () => setMobileMenuOpen(false);
 
@@ -88,22 +91,23 @@ export default function Home() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <a href="#home" className="text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group">
-                Home
+                {t('nav.home')}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full"></span>
               </a>
               <a href="#industries" className="text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group">
-                Industries
+                {t('nav.industries')}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full"></span>
               </a>
               <a href="#solutions" className="text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group">
-                Solutions
+                {t('nav.solutions')}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full"></span>
               </a>
               <a href="#about" className="text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group">
-                About
+                {t('nav.about')}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full"></span>
               </a>
-              <a href="#contact" className="bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-600 hover:to-cyan-500 text-white px-6 py-2 rounded-lg font-medium shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:scale-105">Contact</a>
+              <a href="#contact" className="bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-600 hover:to-cyan-500 text-white px-6 py-2 rounded-lg font-medium shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:scale-105">{t('nav.contact')}</a>
+              <LanguageSwitcher />
             </div>
 
             {/* Mobile Menu Button */}
@@ -134,36 +138,39 @@ export default function Home() {
                 onClick={closeMenu}
                 className="block text-gray-300 hover:text-cyan-400 transition-colors py-2"
               >
-                Home
+                {t('nav.home')}
               </a>
               <a
                 href="#industries"
                 onClick={closeMenu}
                 className="block text-gray-300 hover:text-cyan-400 transition-colors py-2"
               >
-                Industries
+                {t('nav.industries')}
               </a>
               <a
                 href="#solutions"
                 onClick={closeMenu}
                 className="block text-gray-300 hover:text-cyan-400 transition-colors py-2"
               >
-                Solutions
+                {t('nav.solutions')}
               </a>
               <a
                 href="#about"
                 onClick={closeMenu}
                 className="block text-gray-300 hover:text-cyan-400 transition-colors py-2"
               >
-                About
+                {t('nav.about')}
               </a>
               <a
                 href="#contact"
                 onClick={closeMenu}
                 className="block bg-gradient-to-r from-cyan-500 to-cyan-400 text-white px-6 py-3 rounded-lg font-medium text-center shadow-lg shadow-cyan-500/30 hover:from-cyan-600 hover:to-cyan-500 transition-all"
               >
-                Contact
+                {t('nav.contact')}
               </a>
+              <div className="pt-2">
+                <LanguageSwitcher />
+              </div>
             </div>
           </div>
         )}
@@ -179,17 +186,17 @@ export default function Home() {
                 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
                 style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' } as React.CSSProperties}
               >
-                Intelligent IoT Solutions for Multiple Industries
+                {t('hero.title')}
               </RevealText>
               <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-                Tunisia-based expertise delivering industrial sensors, data analytics, and connectivity solutions
+                {t('hero.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <MagneticButton href="#prototype" variant="primary">
-                  Explore Our Prototype
+                  {t('prototype.cta')}
                 </MagneticButton>
                 <MagneticButton href="#contact" variant="secondary">
-                  Get in Touch
+                  {t('nav.contact')}
                 </MagneticButton>
               </div>
             </div>
@@ -215,9 +222,9 @@ export default function Home() {
       <section className="py-16 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <AnimatedStatCounter value={99.9} suffix="%" label="Uptime Reliability" />
-            <AnimatedStatCounter value={50} suffix="+" label="Sensor Types" />
-            <AnimatedStatCounter value={7} label="Industries Served" />
+            <AnimatedStatCounter value={99.9} suffix="%" label={t('stats.uptime')} />
+            <AnimatedStatCounter value={50} suffix="+" label={t('stats.sensors')} />
+            <AnimatedStatCounter value={7} label={t('stats.industries')} />
             <AnimatedStatCounter value={24} suffix="/7" label="Monitoring" />
           </div>
         </div>
@@ -232,10 +239,10 @@ export default function Home() {
               className="text-4xl md:text-5xl font-bold text-navy-900 mb-6"
               style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' } as React.CSSProperties}
             >
-              Multi-Industry IoT Solutions
+              {t('industries.title')}
             </RevealText>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Empowering diverse sectors with intelligent monitoring and connectivity
+              {t('industries.subtitle')}
             </p>
           </div>
 
@@ -246,9 +253,9 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <Heart className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-navy-900 mb-4">Medical</h3>
+              <h3 className="text-2xl font-bold text-navy-900 mb-4">{t('industries.medical.title')}</h3>
               <p className="text-gray-700 mb-4">
-                Patient monitoring, equipment tracking, and healthcare IoT solutions
+                {t('industries.medical.description')}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-center gap-2">
@@ -271,9 +278,9 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <Pill className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-navy-900 mb-4">Pharmaceutical</h3>
+              <h3 className="text-2xl font-bold text-navy-900 mb-4">{t('industries.pharmaceutical.title')}</h3>
               <p className="text-gray-700 mb-4">
-                Environmental monitoring and compliance tracking for pharma operations
+                {t('industries.pharmaceutical.description')}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-center gap-2">
@@ -296,9 +303,9 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <Wheat className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-navy-900 mb-4">Agriculture</h3>
+              <h3 className="text-2xl font-bold text-navy-900 mb-4">{t('industries.agriculture.title')}</h3>
               <p className="text-gray-700 mb-4">
-                Smart farming solutions for precision agriculture and crop management
+                {t('industries.agriculture.description')}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-center gap-2">
@@ -321,9 +328,9 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <Truck className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-navy-900 mb-4">Transport</h3>
+              <h3 className="text-2xl font-bold text-navy-900 mb-4">{t('industries.transport.title')}</h3>
               <p className="text-gray-700 mb-4">
-                Fleet management and logistics optimization for transportation
+                {t('industries.transport.description')}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-center gap-2">
@@ -346,9 +353,9 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <Snowflake className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-navy-900 mb-4">Cold Chain</h3>
+              <h3 className="text-2xl font-bold text-navy-900 mb-4">{t('industries.coldChain.title')}</h3>
               <p className="text-gray-700 mb-4">
-                Temperature-controlled logistics and cold storage monitoring solutions
+                {t('industries.coldChain.description')}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-center gap-2">
@@ -371,9 +378,9 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <Bot className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-navy-900 mb-4">Robotic</h3>
+              <h3 className="text-2xl font-bold text-navy-900 mb-4">{t('industries.robotic.title')}</h3>
               <p className="text-gray-700 mb-4">
-                Industrial automation and collaborative robotics monitoring systems
+                {t('industries.robotic.description')}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-center gap-2">
@@ -396,9 +403,9 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <Factory className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-navy-900 mb-4">Industry 4.0</h3>
+              <h3 className="text-2xl font-bold text-navy-900 mb-4">{t('industries.industry40.title')}</h3>
               <p className="text-gray-700 mb-4">
-                Smart manufacturing and digital transformation for modern factories
+                {t('industries.industry40.description')}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-center gap-2">
@@ -433,10 +440,10 @@ export default function Home() {
               className="text-4xl md:text-5xl font-bold text-white mb-6"
               style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' } as React.CSSProperties}
             >
-              Our Core Solutions
+              {t('solutions.title')}
             </RevealText>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Comprehensive IoT platform for industrial monitoring and analytics
+              {t('solutions.subtitle')}
             </p>
           </AnimatedSection>
 
@@ -447,9 +454,9 @@ export default function Home() {
                 <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/30">
                   <Radio className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Industrial Sensors</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{t('solutions.sensors.title')}</h3>
                 <p className="text-gray-300">
-                  Advanced sensor technology for real-time monitoring across all your operations
+                  {t('solutions.sensors.description')}
                 </p>
               </div>
             </div>
@@ -460,9 +467,9 @@ export default function Home() {
                 <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/30">
                   <BarChart3 className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Data Analytics</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{t('solutions.analytics.title')}</h3>
                 <p className="text-gray-300">
-                  Powerful analytics platform turning sensor data into actionable insights
+                  {t('solutions.analytics.description')}
                 </p>
               </div>
             </div>
@@ -473,9 +480,9 @@ export default function Home() {
                 <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/30">
                   <Link className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Connectivity Solutions</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{t('solutions.connectivity.title')}</h3>
                 <p className="text-gray-300">
-                  Secure, scalable connectivity infrastructure for your IoT ecosystem
+                  {t('solutions.connectivity.description')}
                 </p>
               </div>
             </div>
@@ -493,20 +500,20 @@ export default function Home() {
           <AnimatedSection variant="scale">
             <div className="text-center bg-white/80 backdrop-blur-md border-2 border-cyan-500/20 rounded-2xl p-12 shadow-xl">
               <div className="inline-block px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full mb-6">
-                <span className="text-cyan-600 font-semibold text-sm flex items-center gap-2 justify-center"><Rocket className="w-4 h-4" /> In Development</span>
+                <span className="text-cyan-600 font-semibold text-sm flex items-center gap-2 justify-center"><Rocket className="w-4 h-4" /> {t('prototype.badge')}</span>
               </div>
               <RevealText
                 as="h2"
                 className="text-4xl md:text-5xl font-bold text-[#1a2332] mb-6"
                 style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' } as React.CSSProperties}
               >
-                Our First Product Prototype
+                {t('prototype.title')}
               </RevealText>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
-                Currently developing our flagship IoT monitoring solution with real-world applications across multiple industries
+                {t('prototype.description')}
               </p>
               <MagneticButton href="#contact" variant="primary">
-                Request a Demo
+                {t('prototype.cta')}
               </MagneticButton>
             </div>
           </AnimatedSection>
@@ -522,7 +529,7 @@ export default function Home() {
               className="text-4xl md:text-5xl font-bold text-[#1a2332] mb-6"
               style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' } as React.CSSProperties}
             >
-              Why Tunisia?
+              {t('about.title')}
             </RevealText>
           </AnimatedSection>
 
@@ -531,9 +538,9 @@ export default function Home() {
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-cyan-500/50 group-hover:scale-110 transition-transform duration-300">
                 <Target className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-[#1a2332] mb-4">Strategic Location</h3>
+              <h3 className="text-2xl font-bold text-[#1a2332] mb-4">{t('about.location.title')}</h3>
               <p className="text-gray-700">
-                Based in Sousse, Tunisia - bridging Europe, Africa, and the Middle East
+                {t('about.location.description')}
               </p>
             </div>
 
@@ -541,9 +548,9 @@ export default function Home() {
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-cyan-500/50 group-hover:scale-110 transition-transform duration-300">
                 <Lightbulb className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-[#1a2332] mb-4">Innovation Hub</h3>
+              <h3 className="text-2xl font-bold text-[#1a2332] mb-4">{t('about.innovation.title')}</h3>
               <p className="text-gray-700">
-                Cost-effective R&D and development without compromising quality
+                {t('about.innovation.description')}
               </p>
             </div>
 
@@ -551,9 +558,9 @@ export default function Home() {
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-cyan-500/50 group-hover:scale-110 transition-transform duration-300">
                 <Globe className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-[#1a2332] mb-4">Global Reach</h3>
+              <h3 className="text-2xl font-bold text-[#1a2332] mb-4">{t('about.expertise.title')}</h3>
               <p className="text-gray-700">
-                Local expertise with international standards and global ambitions
+                {t('about.expertise.description')}
               </p>
             </div>
           </div>
@@ -572,7 +579,7 @@ export default function Home() {
               className="text-4xl md:text-5xl font-bold text-[#1a2332] mb-6"
               style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' } as React.CSSProperties}
             >
-              Frequently Asked Questions
+              {t('faq.title')}
             </RevealText>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Everything you need to know about AIOT&apos;s industrial IoT solutions
@@ -582,28 +589,24 @@ export default function Home() {
           <div className="space-y-4">
             {[
               {
-                q: "What industries do AIOT&apos;s IoT solutions serve, and are they customizable for our specific needs?",
-                a: "AIOT specializes in industrial IoT solutions for medical facilities, pharmaceutical manufacturing, agriculture operations, and transport logistics. Each solution is fully customizable to your operational requirements, regulatory environment, and existing infrastructure. Our development approach begins with a detailed assessment of your use case to ensure our IoT platform integrates seamlessly with your workflows and delivers measurable outcomes specific to your industry challenges."
+                q: t('faq.q1.question'),
+                a: t('faq.q1.answer')
               },
               {
-                q: "How long does it take to implement an AIOT solution from initial consultation to full deployment?",
-                a: "Implementation timelines vary based on project scope and complexity. A typical pilot deployment takes 4-8 weeks from consultation to initial operation, while full-scale implementations range from 3-6 months. This includes requirements analysis, solution design, hardware deployment, system integration, testing, and team training. We provide detailed project timelines during the consultation phase and maintain transparent communication throughout the implementation process."
+                q: t('faq.q2.question'),
+                a: t('faq.q2.answer')
               },
               {
-                q: "Does AIOT comply with industry-specific regulations like GMP, GDP, ISO 13485, or HACCP?",
-                a: "Yes, our solutions are designed with regulatory compliance as a core requirement. We architect systems to support GMP (Good Manufacturing Practice) and GDP (Good Distribution Practice) requirements for pharmaceutical clients, ISO 13485 standards for medical device applications, and HACCP compliance for agriculture and food processing. Our data handling protocols align with GDPR and international data protection standards. We provide full documentation and audit trails required for regulatory inspections and certifications."
+                q: t('faq.q3.question'),
+                a: t('faq.q3.answer')
               },
               {
-                q: "How does AIOT ensure data security and protect our operational information?",
-                a: "Data security is fundamental to our architecture. We implement end-to-end encryption for all data transmission, secure cloud infrastructure with ISO 27001-compliant hosting partners, role-based access controls, and regular security audits. For sensitive pharmaceutical and medical applications, we offer on-premises deployment options and hybrid architectures that keep critical data within your controlled environment. All solutions include comprehensive data backup, disaster recovery protocols, and compliance with GDPR and industry-specific data protection requirements."
+                q: t('faq.q4.question'),
+                a: t('faq.q4.answer')
               },
               {
-                q: "Can AIOT&apos;s solutions integrate with our existing ERP, MES, or legacy systems?",
-                a: "Yes, system integration is a core capability. AIOT&apos;s IoT platform supports standard industrial protocols (OPC UA, Modbus, MQTT, REST APIs) and can interface with major ERP systems (SAP, Oracle, Microsoft Dynamics), manufacturing execution systems, and legacy equipment. We conduct pre-implementation integration assessments to identify compatibility requirements and develop custom connectors when needed. Our goal is seamless data flow between your IoT infrastructure and existing business systems without disrupting current operations."
-              },
-              {
-                q: "What is the typical ROI timeline for an AIOT IoT implementation?",
-                a: "Most clients achieve measurable ROI within 12-18 months through operational efficiency gains, reduced downtime, improved quality control, and optimized resource utilization. Specific ROI varies by industry and application: pharmaceutical clients typically see 20-35% reduction in quality control cycle times, transport clients achieve 15-25% fuel cost savings through route optimization, and agriculture clients realize 25-40% water savings through precision irrigation. We provide detailed ROI projections during the consultation phase based on your specific operational metrics and improvement targets."
+                q: t('faq.q5.question'),
+                a: t('faq.q5.answer')
               }
             ].map((faq, index) => (
               <FAQItem key={index} question={faq.q} answer={faq.a} />
@@ -615,7 +618,7 @@ export default function Home() {
               Still have questions? We&apos;re here to help!
             </p>
             <MagneticButton href="#contact" variant="primary">
-              Contact Us
+              {t('nav.contact')}
             </MagneticButton>
           </div>
         </div>
@@ -632,10 +635,10 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Transform Your Operations?
+              {t('contact.title')}
             </h2>
             <p className="text-xl text-white/90">
-              Contact us today to discuss how AIOT solutions can benefit your business
+              {t('contact.subtitle')}
             </p>
           </div>
 
@@ -652,28 +655,28 @@ export default function Home() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Full Name *
+                    {t('contact.form.name')} {t('contact.form.required')}
                   </label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all"
-                    placeholder="John Doe"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all text-gray-900"
+                    placeholder={t('contact.form.namePlaceholder')}
                   />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Email Address *
+                    {t('contact.form.email')} {t('contact.form.required')}
                   </label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all"
-                    placeholder="john@company.com"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all text-gray-900"
+                    placeholder={t('contact.form.emailPlaceholder')}
                   />
                 </div>
               </div>
@@ -681,60 +684,60 @@ export default function Home() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Company Name
+                    {t('contact.form.company')}
                   </label>
                   <input
                     type="text"
                     id="company"
                     name="company"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all"
-                    placeholder="Your Company"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all text-gray-900"
+                    placeholder={t('contact.form.companyPlaceholder')}
                   />
                 </div>
                 <div>
                   <label htmlFor="industry" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Industry *
+                    {t('contact.form.industry')} {t('contact.form.required')}
                   </label>
                   <select
                     id="industry"
                     name="industry"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all bg-white"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all bg-white text-gray-900"
                   >
-                    <option value="">Select Industry</option>
-                    <option value="medical">Medical</option>
-                    <option value="pharmaceutical">Pharmaceutical</option>
-                    <option value="agriculture">Agriculture</option>
-                    <option value="transport">Transport & Logistics</option>
-                    <option value="other">Other</option>
+                    <option value="">{t('contact.form.industryPlaceholder')}</option>
+                    <option value="medical">{t('contact.form.industryOptions.medical')}</option>
+                    <option value="pharmaceutical">{t('contact.form.industryOptions.pharmaceutical')}</option>
+                    <option value="agriculture">{t('contact.form.industryOptions.agriculture')}</option>
+                    <option value="transport">{t('contact.form.industryOptions.transport')}</option>
+                    <option value="other">{t('contact.form.industryOptions.other')}</option>
                   </select>
                 </div>
               </div>
 
               <div>
                 <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Phone Number
+                  {t('contact.form.phone')}
                 </label>
                 <input
                   type="tel"
                   id="phone"
                   name="phone"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all"
-                  placeholder="+216 92 214 755"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all text-gray-900"
+                  placeholder={t('contact.form.phonePlaceholder')}
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Message *
+                  {t('contact.form.message')} {t('contact.form.required')}
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all resize-none"
-                  placeholder="Tell us about your project or requirements..."
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 outline-none transition-all resize-none text-gray-900"
+                  placeholder={t('contact.form.messagePlaceholder')}
                 ></textarea>
               </div>
 
@@ -747,7 +750,7 @@ export default function Home() {
                   className="mt-1 w-4 h-4 text-cyan-600 border-gray-300 rounded focus:ring-cyan-500"
                 />
                 <label htmlFor="privacy" className="text-sm text-gray-600">
-                  I agree to the processing of my personal data and accept the privacy policy *
+                  {t('contact.form.privacy')} {t('contact.form.required')}
                 </label>
               </div>
 
@@ -755,7 +758,7 @@ export default function Home() {
                 type="submit"
                 className="w-full bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
               >
-                Send Message
+                {t('contact.form.submit')}
               </button>
             </form>
 
@@ -766,7 +769,7 @@ export default function Home() {
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  +216 92 214 755
+                  {t('footer.contact.phone')}
                 </a>
                 <span className="text-gray-400 hidden sm:block">|</span>
                 <p className="flex items-center gap-2 text-gray-600">
@@ -774,7 +777,7 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  Sousse, Tunisia
+                  {t('footer.contact.location')}
                 </p>
               </div>
             </div>
@@ -787,29 +790,29 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-cyan-500 to-cyan-400 bg-clip-text text-transparent">AIOT</h3>
+              <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-cyan-500 to-cyan-400 bg-clip-text text-transparent">{t('footer.company.title')}</h3>
               <p className="text-gray-400">
-                Intelligent IoT solutions for medical, pharmaceutical, agriculture, and transport industries
+                {t('footer.company.description')}
               </p>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-4 text-cyan-400">Solutions</h4>
+              <h4 className="text-lg font-semibold mb-4 text-cyan-400">{t('solutions.title')}</h4>
               <ul className="space-y-2 text-gray-400">
-                <li className="hover:text-cyan-400 transition-colors cursor-pointer">Industrial Sensors</li>
-                <li className="hover:text-cyan-400 transition-colors cursor-pointer">Data Analytics</li>
-                <li className="hover:text-cyan-400 transition-colors cursor-pointer">Connectivity Solutions</li>
+                <li className="hover:text-cyan-400 transition-colors cursor-pointer">{t('solutions.sensors.title')}</li>
+                <li className="hover:text-cyan-400 transition-colors cursor-pointer">{t('solutions.analytics.title')}</li>
+                <li className="hover:text-cyan-400 transition-colors cursor-pointer">{t('solutions.connectivity.title')}</li>
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-4 text-cyan-400">Contact</h4>
+              <h4 className="text-lg font-semibold mb-4 text-cyan-400">{t('footer.contact.title')}</h4>
               <ul className="space-y-2 text-gray-400">
-                <li className="hover:text-cyan-400 transition-colors flex items-center gap-2"><Phone className="w-4 h-4" /> +216 92 214 755</li>
-                <li className="hover:text-cyan-400 transition-colors flex items-center gap-2"><MapPin className="w-4 h-4" /> Sousse, Tunisia</li>
+                <li className="hover:text-cyan-400 transition-colors flex items-center gap-2"><Phone className="w-4 h-4" /> {t('footer.contact.phone')}</li>
+                <li className="hover:text-cyan-400 transition-colors flex items-center gap-2"><MapPin className="w-4 h-4" /> {t('footer.contact.location')}</li>
               </ul>
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-cyan-500/20 text-center text-gray-400">
-            <p>© 2025 AIOT. All rights reserved.</p>
+            <p>{t('footer.copyright')}</p>
           </div>
         </div>
       </footer>

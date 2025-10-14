@@ -1,0 +1,165 @@
+{
+  "nav": {
+    "home": "Home",
+    "industries": "Industries",
+    "solutions": "Solutions",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Industrial IoT Solutions from Tunisia",
+    "subtitle": "Advanced monitoring and control systems for medical, pharmaceutical, agriculture, and transport sectors",
+    "cta": "Get Started"
+  },
+  "stats": {
+    "industries": "Industries Served",
+    "solutions": "IoT Solutions",
+    "sensors": "Sensors Deployed",
+    "uptime": "System Uptime"
+  },
+  "industries": {
+    "title": "Industries We Serve",
+    "subtitle": "Specialized IoT solutions tailored for critical industries",
+    "medical": {
+      "title": "Medical",
+      "description": "Hospital equipment monitoring, patient care optimization, and medical device connectivity"
+    },
+    "pharmaceutical": {
+      "title": "Pharmaceutical",
+      "description": "Temperature-controlled storage, compliance monitoring, and production line optimization"
+    },
+    "agriculture": {
+      "title": "Agriculture",
+      "description": "Smart irrigation, soil monitoring, and crop health management systems"
+    },
+    "transport": {
+      "title": "Transport & Logistics",
+      "description": "Fleet tracking, cold chain monitoring, and route optimization solutions"
+    },
+    "coldChain": {
+      "title": "Cold Chain",
+      "description": "Real-time temperature monitoring and automated alerts for temperature-sensitive products"
+    },
+    "robotic": {
+      "title": "Robotic",
+      "description": "Industrial automation, robot fleet management, and predictive maintenance systems"
+    },
+    "industry40": {
+      "title": "Industry 4.0",
+      "description": "Smart manufacturing, digital twin technology, and production optimization platforms"
+    }
+  },
+  "solutions": {
+    "title": "Our Solutions",
+    "subtitle": "Comprehensive IoT ecosystem for industrial applications",
+    "sensors": {
+      "title": "Industrial Sensors",
+      "description": "Advanced sensor technology for real-time monitoring across all your operations"
+    },
+    "analytics": {
+      "title": "Data Analytics",
+      "description": "Powerful analytics platform turning sensor data into actionable insights"
+    },
+    "connectivity": {
+      "title": "Connectivity Solutions",
+      "description": "Secure, scalable connectivity infrastructure for your IoT ecosystem"
+    }
+  },
+  "prototype": {
+    "badge": "In Development",
+    "title": "Our First Product Prototype",
+    "description": "Currently developing our flagship IoT monitoring solution with real-world applications across multiple industries",
+    "cta": "Request a Demo"
+  },
+  "about": {
+    "title": "Why Tunisia?",
+    "location": {
+      "title": "Strategic Location",
+      "description": "Based in Sousse, Tunisia - bridging Europe, Africa, and the Middle East"
+    },
+    "innovation": {
+      "title": "Innovation Hub",
+      "description": "Cost-effective R&D and development without compromising quality"
+    },
+    "expertise": {
+      "title": "Engineering Excellence",
+      "description": "Highly skilled workforce with European-standard education and expertise"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": {
+      "question": "What industries do you specialize in?",
+      "answer": "We specialize in Medical, Pharmaceutical, Agriculture, Transport & Logistics, Cold Chain, Robotics, and Industry 4.0 applications."
+    },
+    "q2": {
+      "question": "Are your solutions customizable?",
+      "answer": "Yes! All our IoT solutions are fully customizable to meet your specific operational requirements and can integrate with existing systems."
+    },
+    "q3": {
+      "question": "What is your geographical coverage?",
+      "answer": "We're based in Tunisia with strategic access to European, African, and Middle Eastern markets. We provide remote monitoring and support globally."
+    },
+    "q4": {
+      "question": "How secure are your IoT solutions?",
+      "answer": "Security is our top priority. We implement end-to-end encryption, secure authentication, and comply with international data protection standards."
+    },
+    "q5": {
+      "question": "What kind of support do you provide?",
+      "answer": "We offer 24/7 technical support, regular system updates, preventive maintenance, and dedicated account management for enterprise clients."
+    }
+  },
+  "contact": {
+    "title": "Ready to Transform Your Operations?",
+    "subtitle": "Contact us today to discuss how AIOT solutions can benefit your business",
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "John Doe",
+      "email": "Email Address",
+      "emailPlaceholder": "john@company.com",
+      "company": "Company Name",
+      "companyPlaceholder": "Your Company",
+      "industry": "Industry",
+      "industryPlaceholder": "Select Industry",
+      "industryOptions": {
+        "medical": "Medical",
+        "pharmaceutical": "Pharmaceutical",
+        "agriculture": "Agriculture",
+        "transport": "Transport & Logistics",
+        "other": "Other"
+      },
+      "phone": "Phone Number",
+      "phonePlaceholder": "+216 92 214 755",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your project or requirements...",
+      "privacy": "I agree to the processing of my personal data and accept the privacy policy",
+      "required": "*",
+      "submit": "Send Message"
+    }
+  },
+  "footer": {
+    "company": {
+      "title": "AIOT",
+      "description": "Advanced Industrial IoT solutions from Tunisia, serving global markets with innovative monitoring and control systems."
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "industries": "Industries",
+      "solutions": "Solutions",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "contact": {
+      "title": "Contact",
+      "location": "Sousse, Tunisia",
+      "phone": "+216 92 214 755",
+      "email": "contact@aiot.tn"
+    },
+    "followUs": {
+      "title": "Follow Us"
+    },
+    "copyright": "© 2025 AIOT. All rights reserved.",
+    "made": "Made with",
+    "in": "in Tunisia"
+  }
+}

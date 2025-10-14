@@ -1,0 +1,165 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "industries": "Secteurs",
+    "solutions": "Solutions",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Solutions IoT Industrielles depuis la Tunisie",
+    "subtitle": "Systèmes avancés de surveillance et de contrôle pour les secteurs médical, pharmaceutique, agricole et du transport",
+    "cta": "Commencer"
+  },
+  "stats": {
+    "industries": "Secteurs Desservis",
+    "solutions": "Solutions IoT",
+    "sensors": "Capteurs Déployés",
+    "uptime": "Disponibilité Système"
+  },
+  "industries": {
+    "title": "Secteurs que Nous Servons",
+    "subtitle": "Solutions IoT spécialisées adaptées aux industries critiques",
+    "medical": {
+      "title": "Médical",
+      "description": "Surveillance d'équipements hospitaliers, optimisation des soins aux patients et connectivité des dispositifs médicaux"
+    },
+    "pharmaceutical": {
+      "title": "Pharmaceutique",
+      "description": "Stockage à température contrôlée, surveillance de la conformité et optimisation des lignes de production"
+    },
+    "agriculture": {
+      "title": "Agriculture",
+      "description": "Irrigation intelligente, surveillance des sols et systèmes de gestion de la santé des cultures"
+    },
+    "transport": {
+      "title": "Transport & Logistique",
+      "description": "Suivi de flotte, surveillance de la chaîne du froid et solutions d'optimisation des itinéraires"
+    },
+    "coldChain": {
+      "title": "Chaîne du Froid",
+      "description": "Surveillance de température en temps réel et alertes automatisées pour les produits sensibles à la température"
+    },
+    "robotic": {
+      "title": "Robotique",
+      "description": "Automatisation industrielle, gestion de flotte robotique et systèmes de maintenance prédictive"
+    },
+    "industry40": {
+      "title": "Industrie 4.0",
+      "description": "Fabrication intelligente, technologie de jumeau numérique et plateformes d'optimisation de production"
+    }
+  },
+  "solutions": {
+    "title": "Nos Solutions",
+    "subtitle": "Écosystème IoT complet pour applications industrielles",
+    "sensors": {
+      "title": "Capteurs Industriels",
+      "description": "Technologie de capteurs avancée pour la surveillance en temps réel de toutes vos opérations"
+    },
+    "analytics": {
+      "title": "Analyse de Données",
+      "description": "Plateforme d'analyse puissante transformant les données des capteurs en insights exploitables"
+    },
+    "connectivity": {
+      "title": "Solutions de Connectivité",
+      "description": "Infrastructure de connectivité sécurisée et évolutive pour votre écosystème IoT"
+    }
+  },
+  "prototype": {
+    "badge": "En Développement",
+    "title": "Notre Premier Prototype de Produit",
+    "description": "Développement en cours de notre solution de surveillance IoT phare avec des applications réelles dans de multiples industries",
+    "cta": "Demander une Démo"
+  },
+  "about": {
+    "title": "Pourquoi la Tunisie?",
+    "location": {
+      "title": "Emplacement Stratégique",
+      "description": "Basé à Sousse, Tunisie - pont entre l'Europe, l'Afrique et le Moyen-Orient"
+    },
+    "innovation": {
+      "title": "Hub d'Innovation",
+      "description": "R&D et développement rentables sans compromettre la qualité"
+    },
+    "expertise": {
+      "title": "Excellence en Ingénierie",
+      "description": "Main-d'œuvre hautement qualifiée avec formation et expertise de standard européen"
+    }
+  },
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "q1": {
+      "question": "Dans quels secteurs vous spécialisez-vous?",
+      "answer": "Nous nous spécialisons dans le Médical, Pharmaceutique, Agriculture, Transport & Logistique, Chaîne du Froid, Robotique et applications Industrie 4.0."
+    },
+    "q2": {
+      "question": "Vos solutions sont-elles personnalisables?",
+      "answer": "Oui! Toutes nos solutions IoT sont entièrement personnalisables pour répondre à vos besoins opérationnels spécifiques et peuvent s'intégrer aux systèmes existants."
+    },
+    "q3": {
+      "question": "Quelle est votre couverture géographique?",
+      "answer": "Nous sommes basés en Tunisie avec un accès stratégique aux marchés européens, africains et moyen-orientaux. Nous fournissons surveillance et support à distance mondialement."
+    },
+    "q4": {
+      "question": "Quelle est la sécurité de vos solutions IoT?",
+      "answer": "La sécurité est notre priorité absolue. Nous implémentons le chiffrement de bout en bout, l'authentification sécurisée et respectons les normes internationales de protection des données."
+    },
+    "q5": {
+      "question": "Quel type de support fournissez-vous?",
+      "answer": "Nous offrons un support technique 24/7, mises à jour régulières du système, maintenance préventive et gestion de compte dédiée pour les clients entreprise."
+    }
+  },
+  "contact": {
+    "title": "Prêt à Transformer Vos Opérations?",
+    "subtitle": "Contactez-nous aujourd'hui pour discuter de comment les solutions AIOT peuvent bénéficier à votre entreprise",
+    "form": {
+      "name": "Nom Complet",
+      "namePlaceholder": "Jean Dupont",
+      "email": "Adresse Email",
+      "emailPlaceholder": "jean@entreprise.com",
+      "company": "Nom de l'Entreprise",
+      "companyPlaceholder": "Votre Entreprise",
+      "industry": "Secteur",
+      "industryPlaceholder": "Sélectionner le Secteur",
+      "industryOptions": {
+        "medical": "Médical",
+        "pharmaceutical": "Pharmaceutique",
+        "agriculture": "Agriculture",
+        "transport": "Transport & Logistique",
+        "other": "Autre"
+      },
+      "phone": "Numéro de Téléphone",
+      "phonePlaceholder": "+33 1 23 45 67 89",
+      "message": "Message",
+      "messagePlaceholder": "Parlez-nous de votre projet ou de vos besoins...",
+      "privacy": "J'accepte le traitement de mes données personnelles et accepte la politique de confidentialité",
+      "required": "*",
+      "submit": "Envoyer le Message"
+    }
+  },
+  "footer": {
+    "company": {
+      "title": "AIOT",
+      "description": "Solutions IoT industrielles avancées depuis la Tunisie, servant les marchés mondiaux avec des systèmes innovants de surveillance et de contrôle."
+    },
+    "quickLinks": {
+      "title": "Liens Rapides",
+      "industries": "Secteurs",
+      "solutions": "Solutions",
+      "about": "À propos",
+      "contact": "Contact"
+    },
+    "contact": {
+      "title": "Contact",
+      "location": "Sousse, Tunisie",
+      "phone": "+216 92 214 755",
+      "email": "contact@aiot.tn"
+    },
+    "followUs": {
+      "title": "Suivez-Nous"
+    },
+    "copyright": "© 2025 AIOT. Tous droits réservés.",
+    "made": "Fait avec",
+    "in": "en Tunisie"
+  }
+}

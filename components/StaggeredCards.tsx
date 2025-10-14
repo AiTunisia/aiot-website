@@ -10,29 +10,34 @@ interface CardProps {
 }
 
 function Card({ children, index, isMobile }: CardProps) {
-  // Mobile-optimized animation values
-  const yDistance = isMobile ? 20 : 50;
-  const duration = isMobile ? 0.3 : 0.5;
-  const staggerDelay = isMobile ? 0.05 : 0.15;
+  // Mobile: Show immediately without animation
+  if (isMobile) {
+    return (
+      <div className="group relative">
+        {children}
+      </div>
+    );
+  }
 
+  // Desktop: Keep full animation
   return (
     <motion.div
-      initial={{ opacity: 0, y: yDistance }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{
-        duration: duration,
-        delay: index * staggerDelay,
-        ease: isMobile ? "easeOut" : [0.25, 0.46, 0.45, 0.94],
+        duration: 0.5,
+        delay: index * 0.15,
+        ease: [0.25, 0.46, 0.45, 0.94],
       }}
-      whileHover={!isMobile ? {
+      whileHover={{
         scale: 1.05,
         rotateY: 5,
         rotateX: 5,
         transition: { duration: 0.3 },
-      } : undefined}
+      }}
       className="group relative"
-      style={!isMobile ? { transformStyle: "preserve-3d", perspective: "1000px" } : undefined}
+      style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
     >
       {children}
     </motion.div>

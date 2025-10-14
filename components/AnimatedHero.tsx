@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ReactNode, useMemo } from "react";
+import { ReactNode, useMemo, useState, useEffect } from "react";
 
 interface ParticleProps {
   index: number;
@@ -45,6 +45,20 @@ interface AnimatedHeroProps {
 }
 
 export default function AnimatedHero({ children, className = "" }: AnimatedHeroProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const particleCount = isMobile ? 0 : 5; // Remove particles on mobile
+
   return (
     <div className={`relative ${className}`}>
       {/* Multi-layer backgrounds */}
@@ -52,27 +66,29 @@ export default function AnimatedHero({ children, className = "" }: AnimatedHeroP
         {/* Layer 1: Base gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a1018] via-[#1a2332] to-[#0a1018]"></div>
 
-        {/* Layer 2: Animated grid */}
-        <div className="absolute inset-0 tech-grid-background opacity-30"></div>
-        <div className="grid-scan"></div>
+        {/* Layer 2: Animated grid - Simplified on mobile */}
+        <div className={`absolute inset-0 tech-grid-background ${isMobile ? 'opacity-15' : 'opacity-30'}`}></div>
+        {!isMobile && <div className="grid-scan"></div>}
 
-        {/* Layer 3: Gradient orb (optimized - reduced from 2 to 1, smaller blur) */}
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"
-          style={{ willChange: "transform, opacity" }}
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.15, 0.3, 0.15],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        {/* Layer 3: Gradient orb - Desktop only */}
+        {!isMobile && (
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"
+            style={{ willChange: "transform, opacity" }}
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.15, 0.3, 0.15],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        )}
 
-        {/* Layer 4: Floating Particles (optimized - reduced from 15 to 5) */}
-        {[...Array(5)].map((_, i) => (
+        {/* Layer 4: Floating Particles (5 on desktop, 0 on mobile) */}
+        {[...Array(particleCount)].map((_, i) => (
           <FloatingParticle key={i} index={i} />
         ))}
       </div>

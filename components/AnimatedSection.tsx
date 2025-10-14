@@ -78,19 +78,22 @@ export default function AnimatedSection({
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const variants = isMobile ? variantsMobile : variantsDesktop;
-  const duration = isMobile ? 0.35 : 0.6;
+  // Mobile: Show immediately without animation
+  if (isMobile) {
+    return <div className={className}>{children}</div>;
+  }
 
+  // Desktop: Keep full animation
   return (
     <motion.div
       ref={ref}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      variants={variants[variant]}
+      variants={variantsDesktop[variant]}
       transition={{
-        duration: duration,
+        duration: 0.6,
         delay,
-        ease: isMobile ? "easeOut" : [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94],
       }}
       className={className}
     >

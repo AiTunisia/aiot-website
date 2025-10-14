@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface AnimatedStatCounterProps {
   value: number;
@@ -18,6 +18,17 @@ export default function AnimatedStatCounter({
 }: AnimatedStatCounterProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const motionValue = useSpring(0, {
     stiffness: 50,
@@ -35,6 +46,23 @@ export default function AnimatedStatCounter({
     }
   }, [isInView, motionValue, value]);
 
+  // Mobile: Show instantly without animation
+  if (isMobile) {
+    return (
+      <div className="text-center">
+        <div className="mb-3">
+          <span className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-500 to-cyan-400 bg-clip-text text-transparent">
+            {prefix}
+            {value}
+            {suffix}
+          </span>
+        </div>
+        <p className="text-gray-600 font-medium">{label}</p>
+      </div>
+    );
+  }
+
+  // Desktop: Keep full animation
   return (
     <motion.div
       ref={ref}

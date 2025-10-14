@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { createElement, useEffect, useRef, useState } from "react";
 
 interface RevealTextProps {
   children: string;
@@ -20,7 +20,24 @@ export default function RevealText({
 }: RevealTextProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [isMobile, setIsMobile] = useState(false);
 
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Mobile: Show instantly without animation
+  if (isMobile) {
+    return createElement(as, { className, style }, children);
+  }
+
+  // Desktop: Keep full word-by-word animation
   const words = children.split(" ");
 
   const container = {

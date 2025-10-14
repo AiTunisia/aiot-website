@@ -644,9 +644,9 @@ export default function Home() {
 
           <div className="bg-white/95 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-2xl">
             <form
-              action="https://formsubmit.co/5b3235b60c9402816eb1cbee98e48170"
+              action="https://formsubmit.co/35f00911bd8d4de4a63bc457404d6f6e"
               method="POST"
-              className="space-y-6"
+              className="i-form"
             >
               {/* FormSubmit Configuration */}
               <input type="hidden" name="_subject" value="New Contact Form Submission from AIOT Website" />

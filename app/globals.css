@@ -74,6 +74,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Disable smooth scroll on mobile for native momentum */
+@media (max-width: 1023px) {
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
@@ -232,6 +239,24 @@ html {
   /* Contact form - make fully opaque on mobile */
   #contact .bg-white {
     background-color: rgba(255, 255, 255, 1) !important;
+  }
+
+  /* Disable background animations on mobile for smooth scrolling */
+  .grid-scan {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  .tech-grid-background::before {
+    background: none !important;
+  }
+
+  .shimmer {
+    animation: none !important;
+  }
+
+  .animate-gradient {
+    animation: none !important;
   }
 }
 

@@ -1,8 +1,27 @@
 "use client";
 
 import { motion, useScroll, useSpring } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function ScrollProgress() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Mobile: Disable scroll progress (removes scroll listener overhead)
+  if (isMobile) {
+    return null;
+  }
+
+  // Desktop: Keep animated progress bar
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,

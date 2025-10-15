@@ -86,6 +86,28 @@
       "description": "Main-d'œuvre hautement qualifiée avec formation et expertise de standard européen"
     }
   },
+  "team": {
+    "title": "Notre Équipe Fondatrice",
+    "subtitle": "Les experts IoT derrière AIOT",
+    "mokhtar": {
+      "name": "Mokhtar Harrabi",
+      "role": "PDG & Co-Fondateur",
+      "description": "Fort de plus de 15 ans d'expérience dans la conception de systèmes intelligents, Mokhtar dirige la vision stratégique de l'entreprise. Spécialiste des systèmes embarqués et de l'intégration matérielle-logicielle, il veille à transformer chaque idée en produit fiable et évolutif.",
+      "linkedin": "https://www.linkedin.com/in/harrabi-mokhtar-b81a6b9"
+    },
+    "adam": {
+      "name": "Adam Ben Slama",
+      "role": "Directeur Technique (CTO) & Co-Fondateur",
+      "description": "Adam pilote l'architecture technique et le développement logiciel de nos dispositifs connectés. Spécialiste des systèmes embarqués et de l'intégration cloud, il conçoit des solutions performantes, stables et prêtes pour la production.",
+      "linkedin": "https://www.linkedin.com/in/adam-ben-slama"
+    },
+    "mohamed": {
+      "name": "Mohamed Ameur Ben Abdessalem",
+      "role": "Ingénieur Systèmes Embarqués & Co-Fondateur",
+      "description": "Mohamed est chargé de la conception et du développement des systèmes embarqués et temps réel. Grâce à sa formation d'ingénieur et son expérience en électronique appliquée, il contribue à créer des dispositifs intelligents et efficaces.",
+      "linkedin": "https://www.linkedin.com/in/mohamed-ameur-ben-abdessalem-53a717162"
+    }
+  },
   "faq": {
     "title": "Questions Fréquemment Posées",
     "q1": {

@@ -86,6 +86,28 @@
       "description": "Highly skilled workforce with European-standard education and expertise"
     }
   },
+  "team": {
+    "title": "Our Founding Team",
+    "subtitle": "The IoT experts behind AIOT",
+    "mokhtar": {
+      "name": "Mokhtar Harrabi",
+      "role": "CEO & Co-Founder",
+      "description": "With over 15 years of experience in designing intelligent systems, Mokhtar leads the company's strategic vision. An expert in embedded systems and hardware-software integration, he ensures every idea is transformed into a reliable and scalable product.",
+      "linkedin": "https://www.linkedin.com/in/harrabi-mokhtar-b81a6b9"
+    },
+    "adam": {
+      "name": "Adam Ben Slama",
+      "role": "Chief Technology Officer (CTO) & Co-Founder",
+      "description": "Adam drives the technical architecture and software development of our connected devices. A specialist in embedded systems and cloud integration, he designs high-performance, stable solutions ready for production.",
+      "linkedin": "https://www.linkedin.com/in/adam-ben-slama"
+    },
+    "mohamed": {
+      "name": "Mohamed Ameur Ben Abdessalem",
+      "role": "Embedded Systems Engineer & Co-Founder",
+      "description": "Mohamed is responsible for the design and development of embedded and real-time systems. With his engineering background and experience in applied electronics, he helps create intelligent and efficient devices.",
+      "linkedin": "https://www.linkedin.com/in/mohamed-ameur-ben-abdessalem-53a717162"
+    }
+  },
   "faq": {
     "title": "Frequently Asked Questions",
     "q1": {

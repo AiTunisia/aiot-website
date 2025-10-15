@@ -11,6 +11,8 @@ import AnimatedHero from "../../components/AnimatedHero";
 import MagneticButton from "../../components/MagneticButton";
 import RevealText from "../../components/RevealText";
 import LanguageSwitcher from "../../components/LanguageSwitcher";
+import TeamCard from "../../components/TeamCard";
+import TeamCarousel from "../../components/TeamCarousel";
 import { Heart, Pill, Wheat, Truck, Snowflake, Bot, Factory, Radio, BarChart3, Link, Rocket, Target, Lightbulb, Globe, Phone, MapPin, Mail, Headphones } from "lucide-react";
 
 // FAQ Accordion Item Component
@@ -564,6 +566,56 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section id="team" className="py-20 bg-gradient-to-br from-[#1a2332] via-[#0d1520] to-[#1a2332] relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-cyan-500/5 rounded-full blur-3xl"></div>
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <AnimatedSection variant="fadeIn" className="text-center mb-16">
+            <RevealText
+              as="h2"
+              className="text-4xl md:text-5xl font-bold text-white mb-6"
+              style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' } as React.CSSProperties}
+            >
+              {t('team.title')}
+            </RevealText>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              {t('team.subtitle')}
+            </p>
+          </AnimatedSection>
+
+          <TeamCarousel>
+            <TeamCard
+              name={t('team.mokhtar.name')}
+              role={t('team.mokhtar.role')}
+              description={t('team.mokhtar.description')}
+              imageSrc="/images/Harrabi.jpg"
+              linkedinUrl={t('team.mokhtar.linkedin')}
+              index={0}
+            />
+            <TeamCard
+              name={t('team.adam.name')}
+              role={t('team.adam.role')}
+              description={t('team.adam.description')}
+              imageSrc="/images/Adam.jpg"
+              linkedinUrl={t('team.adam.linkedin')}
+              index={1}
+            />
+            <TeamCard
+              name={t('team.mohamed.name')}
+              role={t('team.mohamed.role')}
+              description={t('team.mohamed.description')}
+              imageSrc="/images/Ameur.jpg"
+              linkedinUrl={t('team.mohamed.linkedin')}
+              index={2}
+            />
+          </TeamCarousel>
         </div>
       </section>
 

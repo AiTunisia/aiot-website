@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, ReactNode } from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { motion, useMotionValue, animate } from 'framer-motion';
 
 interface TeamCarouselProps {
   children: ReactNode[];
@@ -10,22 +10,13 @@ interface TeamCarouselProps {
 export default function TeamCarousel({ children }: TeamCarouselProps) {
   const [isMobile, setIsMobile] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [cardWidth, setCardWidth] = useState(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
 
   // Detect mobile devices
   useEffect(() => {
     const checkMobile = () => {
-      const mobile = window.innerWidth < 1024;
-      setIsMobile(mobile);
-
-      // Calculate card width for mobile carousel
-      if (mobile && carouselRef.current) {
-        const containerWidth = carouselRef.current.offsetWidth;
-        // Card width = container width - padding
-        setCardWidth(containerWidth - 48); // 48px = padding (24px each side)
-      }
+      setIsMobile(window.innerWidth < 1024);
     };
 
     checkMobile();
@@ -38,10 +29,9 @@ export default function TeamCarousel({ children }: TeamCarouselProps) {
     if (!isMobile) return;
 
     const unsubscribe = x.on('change', (latest) => {
-      if (cardWidth === 0) return;
-
-      // Calculate which card should be active based on position
-      // Add gap of 32px between cards
+      // Each card is roughly 85% of screen width + gap
+      const containerWidth = window.innerWidth;
+      const cardWidth = containerWidth * 0.85;
       const index = Math.round(-latest / (cardWidth + 32));
       const clampedIndex = Math.max(0, Math.min(children.length - 1, index));
 
@@ -51,12 +41,14 @@ export default function TeamCarousel({ children }: TeamCarouselProps) {
     });
 
     return () => unsubscribe();
-  }, [x, cardWidth, currentIndex, children.length, isMobile]);
+  }, [x, currentIndex, children.length, isMobile]);
 
   // Snap to nearest card on drag end
   const handleDragEnd = () => {
-    if (!isMobile || cardWidth === 0) return;
+    if (!isMobile) return;
 
+    const containerWidth = window.innerWidth;
+    const cardWidth = containerWidth * 0.85;
     const targetX = -currentIndex * (cardWidth + 32);
 
     animate(x, targetX, {
@@ -68,9 +60,11 @@ export default function TeamCarousel({ children }: TeamCarouselProps) {
 
   // Navigate to specific card via dot click
   const goToCard = (index: number) => {
-    if (!isMobile || cardWidth === 0) return;
+    if (!isMobile) return;
 
     setCurrentIndex(index);
+    const containerWidth = window.innerWidth;
+    const cardWidth = containerWidth * 0.85;
     const targetX = -index * (cardWidth + 32);
 
     animate(x, targetX, {
@@ -91,16 +85,16 @@ export default function TeamCarousel({ children }: TeamCarouselProps) {
 
   // Mobile: Show swipeable carousel
   return (
-    <div className="relative w-full overflow-hidden" ref={carouselRef}>
+    <div className="relative w-full overflow-hidden" ref={containerRef}>
       {/* Swipeable Container */}
       <motion.div
-        className="flex gap-8 px-6 justify-center"
-        style={{ x }}
+        className="flex gap-8"
+        style={{ x, paddingLeft: '7.5%', paddingRight: '7.5%' }}
         drag="x"
         dragElastic={0.2}
         dragMomentum={false}
         dragConstraints={{
-          left: -(children.length - 1) * (cardWidth + 32),
+          left: -(children.length - 1) * (window.innerWidth * 0.85 + 32),
           right: 0
         }}
         onDragEnd={handleDragEnd}
@@ -108,8 +102,8 @@ export default function TeamCarousel({ children }: TeamCarouselProps) {
         {children.map((child, index) => (
           <div
             key={index}
-            className="flex-shrink-0 flex justify-center"
-            style={{ width: cardWidth || '100%' }}
+            className="flex-shrink-0"
+            style={{ width: '85vw', maxWidth: '400px' }}
           >
             {child}
           </div>

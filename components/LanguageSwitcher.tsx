@@ -46,7 +46,7 @@ export default function LanguageSwitcher() {
         <span className="text-sm font-medium uppercase">{currentLang}</span>
       </button>
 
-      <div className={`absolute right-0 mt-2 w-36 bg-[#1a2332] border border-cyan-500/20 rounded-lg shadow-xl transition-all duration-200 z-50 ${
+      <div className={`absolute left-0 md:right-0 md:left-auto mt-2 w-36 bg-[#1a2332] border border-cyan-500/20 rounded-lg shadow-xl transition-all duration-200 z-50 ${
         isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
       }`}>
         <Link

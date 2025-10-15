@@ -114,9 +114,9 @@
     "subtitle": "Contactez-nous aujourd'hui pour discuter de comment les solutions AIOT peuvent bénéficier à votre entreprise",
     "form": {
       "name": "Nom Complet",
-      "namePlaceholder": "Jean Dupont",
+      "namePlaceholder": "Nom et Prenom",
       "email": "Adresse Email",
-      "emailPlaceholder": "jean@entreprise.com",
+      "emailPlaceholder": "exemple@entreprise.com",
       "company": "Nom de l'Entreprise",
       "companyPlaceholder": "Votre Entreprise",
       "industry": "Secteur",
@@ -128,8 +128,9 @@
         "transport": "Transport & Logistique",
         "other": "Autre"
       },
+      
       "phone": "Numéro de Téléphone",
-      "phonePlaceholder": "+33 1 23 45 67 89",
+      "phonePlaceholder": "+216 1 23 45 67 89",
       "message": "Message",
       "messagePlaceholder": "Parlez-nous de votre projet ou de vos besoins...",
       "privacy": "J'accepte le traitement de mes données personnelles et accepte la politique de confidentialité",
@@ -158,6 +159,7 @@
     "followUs": {
       "title": "Suivez-Nous"
     },
+    "reach": "Ou contactez-nous directement :",
     "copyright": "© 2025 AIOT. Tous droits réservés.",
     "made": "Fait avec",
     "in": "en Tunisie"

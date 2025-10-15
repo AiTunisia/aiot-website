@@ -114,9 +114,9 @@
     "subtitle": "Contact us today to discuss how AIOT solutions can benefit your business",
     "form": {
       "name": "Full Name",
-      "namePlaceholder": "John Doe",
+      "namePlaceholder": "First and Last Name",
       "email": "Email Address",
-      "emailPlaceholder": "john@company.com",
+      "emailPlaceholder": "example@company.com",
       "company": "Company Name",
       "companyPlaceholder": "Your Company",
       "industry": "Industry",
@@ -128,6 +128,7 @@
         "transport": "Transport & Logistics",
         "other": "Other"
       },
+      
       "phone": "Phone Number",
       "phonePlaceholder": "+216 92 214 755",
       "message": "Message",
@@ -138,6 +139,7 @@
     }
   },
   "footer": {
+    "reach":"Or reach us directly:",
     "company": {
       "title": "AIOT",
       "description": "Advanced Industrial IoT solutions from Tunisia, serving global markets with innovative monitoring and control systems."

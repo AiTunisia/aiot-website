@@ -11,7 +11,7 @@ import AnimatedHero from "../../components/AnimatedHero";
 import MagneticButton from "../../components/MagneticButton";
 import RevealText from "../../components/RevealText";
 import LanguageSwitcher from "../../components/LanguageSwitcher";
-import { Heart, Pill, Wheat, Truck, Snowflake, Bot, Factory, Radio, BarChart3, Link, Rocket, Target, Lightbulb, Globe, Phone, MapPin } from "lucide-react";
+import { Heart, Pill, Wheat, Truck, Snowflake, Bot, Factory, Radio, BarChart3, Link, Rocket, Target, Lightbulb, Globe, Phone, MapPin, Mail, Headphones } from "lucide-react";
 
 // FAQ Accordion Item Component
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -249,12 +249,12 @@ export default function Home() {
           <StaggeredCards className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
             /* Medical */
-            <div key="medical" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
+            <div key="medical" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl flex flex-col h-full">
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <Heart className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-navy-900 mb-4">{t('industries.medical.title')}</h3>
-              <p className="text-gray-700 mb-4">
+              <p className="text-gray-700 mb-4 text-justify">
                 {t('industries.medical.description')}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
@@ -274,12 +274,12 @@ export default function Home() {
             </div>
 
             /* Pharmaceutical */
-            ,<div key="pharma" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
+            ,<div key="pharma" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl flex flex-col h-full">
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <Pill className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-navy-900 mb-4">{t('industries.pharmaceutical.title')}</h3>
-              <p className="text-gray-700 mb-4">
+              <p className="text-gray-700 mb-4 text-justify">
                 {t('industries.pharmaceutical.description')}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
@@ -299,12 +299,12 @@ export default function Home() {
             </div>
 
             /* Agriculture */
-            ,<div key="agriculture" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
+            ,<div key="agriculture" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl flex flex-col h-full">
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <Wheat className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-navy-900 mb-4">{t('industries.agriculture.title')}</h3>
-              <p className="text-gray-700 mb-4">
+              <p className="text-gray-700 mb-4 text-justify">
                 {t('industries.agriculture.description')}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
@@ -324,12 +324,12 @@ export default function Home() {
             </div>
 
             /* Transport */
-            ,<div key="transport" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
+            ,<div key="transport" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl flex flex-col h-full">
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <Truck className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-navy-900 mb-4">{t('industries.transport.title')}</h3>
-              <p className="text-gray-700 mb-4">
+              <p className="text-gray-700 mb-4 text-justify">
                 {t('industries.transport.description')}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
@@ -349,12 +349,12 @@ export default function Home() {
             </div>
 
             /* Cold Chain */
-            ,<div key="cold-chain" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
+            ,<div key="cold-chain" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl flex flex-col h-full">
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <Snowflake className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-navy-900 mb-4">{t('industries.coldChain.title')}</h3>
-              <p className="text-gray-700 mb-4">
+              <p className="text-gray-700 mb-4 text-justify">
                 {t('industries.coldChain.description')}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
@@ -374,12 +374,12 @@ export default function Home() {
             </div>
 
             /* Robotic */
-            ,<div key="robotic" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
+            ,<div key="robotic" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl flex flex-col h-full">
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <Bot className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-navy-900 mb-4">{t('industries.robotic.title')}</h3>
-              <p className="text-gray-700 mb-4">
+              <p className="text-gray-700 mb-4 text-justify">
                 {t('industries.robotic.description')}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
@@ -399,12 +399,12 @@ export default function Home() {
             </div>
 
             /* Industry 4.0 */
-            ,<div key="industry4" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl">
+            ,<div key="industry4" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-8 shadow-xl flex flex-col h-full">
               <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
                 <Factory className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-navy-900 mb-4">{t('industries.industry40.title')}</h3>
-              <p className="text-gray-700 mb-4">
+              <p className="text-gray-700 mb-4 text-justify">
                 {t('industries.industry40.description')}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
@@ -448,40 +448,40 @@ export default function Home() {
           </AnimatedSection>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl shadow-xl relative overflow-hidden group">
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl shadow-xl relative overflow-hidden group flex flex-col h-full">
               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all duration-300"></div>
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/30">
                   <Radio className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">{t('solutions.sensors.title')}</h3>
-                <p className="text-gray-300">
+                <p className="text-gray-300 text-justify">
                   {t('solutions.sensors.description')}
                 </p>
               </div>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl shadow-xl relative overflow-hidden group">
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl shadow-xl relative overflow-hidden group flex flex-col h-full">
               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all duration-300"></div>
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/30">
                   <BarChart3 className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">{t('solutions.analytics.title')}</h3>
-                <p className="text-gray-300">
+                <p className="text-gray-300 text-justify">
                   {t('solutions.analytics.description')}
                 </p>
               </div>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl shadow-xl relative overflow-hidden group">
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl shadow-xl relative overflow-hidden group flex flex-col h-full">
               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all duration-300"></div>
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/30">
                   <Link className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">{t('solutions.connectivity.title')}</h3>
-                <p className="text-gray-300">
+                <p className="text-gray-300 text-justify">
                   {t('solutions.connectivity.description')}
                 </p>
               </div>
@@ -509,7 +509,7 @@ export default function Home() {
               >
                 {t('prototype.title')}
               </RevealText>
-              <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8 text-justify">
                 {t('prototype.description')}
               </p>
               <MagneticButton href="#contact" variant="primary">
@@ -534,32 +534,32 @@ export default function Home() {
           </AnimatedSection>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center group">
+            <div className="text-center group flex flex-col h-full">
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-cyan-500/50 group-hover:scale-110 transition-transform duration-300">
                 <Target className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-[#1a2332] mb-4">{t('about.location.title')}</h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 text-justify">
                 {t('about.location.description')}
               </p>
             </div>
 
-            <div className="text-center group">
+            <div className="text-center group flex flex-col h-full">
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-cyan-500/50 group-hover:scale-110 transition-transform duration-300">
                 <Lightbulb className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-[#1a2332] mb-4">{t('about.innovation.title')}</h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 text-justify">
                 {t('about.innovation.description')}
               </p>
             </div>
 
-            <div className="text-center group">
+            <div className="text-center group flex flex-col h-full">
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-cyan-500/50 group-hover:scale-110 transition-transform duration-300">
                 <Globe className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-[#1a2332] mb-4">{t('about.expertise.title')}</h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 text-justify">
                 {t('about.expertise.description')}
               </p>
             </div>
@@ -646,7 +646,8 @@ export default function Home() {
             <form
               action="https://formsubmit.co/35f00911bd8d4de4a63bc457404d6f6e"
               method="POST"
-              className="i-form"
+              target="_blank"
+              className="space-y-6"
             >
               {/* FormSubmit Configuration */}
               <input type="hidden" name="_subject" value="New Contact Form Submission from AIOT Website" />
@@ -749,21 +750,23 @@ export default function Home() {
                   required
                   className="mt-1 w-4 h-4 text-cyan-600 border-gray-300 rounded focus:ring-cyan-500"
                 />
-                <label htmlFor="privacy" className="text-sm text-gray-600">
+                <label htmlFor="privacy" className="text-sm text-gray-600 line-clamp-2">
                   {t('contact.form.privacy')} {t('contact.form.required')}
                 </label>
               </div>
 
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
-              >
-                {t('contact.form.submit')}
-              </button>
+              <div className="pt-4">
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
+                >
+                  {t('contact.form.submit')}
+                </button>
+              </div>
             </form>
 
             <div className="mt-8 pt-8 border-t border-gray-200">
-              <p className="text-center text-gray-600 mb-4 font-medium">Or reach us directly:</p>
+              <p className="text-center text-gray-600 mb-4 font-medium">{t('footer.reach')}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a href="tel:+21692214755" className="flex items-center gap-2 text-cyan-600 hover:text-cyan-700 font-semibold transition-colors">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -806,8 +809,22 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-cyan-400">{t('footer.contact.title')}</h4>
               <ul className="space-y-2 text-gray-400">
-                <li className="hover:text-cyan-400 transition-colors flex items-center gap-2"><Phone className="w-4 h-4" /> {t('footer.contact.phone')}</li>
-                <li className="hover:text-cyan-400 transition-colors flex items-center gap-2"><MapPin className="w-4 h-4" /> {t('footer.contact.location')}</li>
+                <li className="hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <Phone className="w-4 h-4" /> {t('footer.contact.phone')}
+                </li>
+                <li className="hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <MapPin className="w-4 h-4" /> {t('footer.contact.location')}
+                </li>
+                <li className="hover:text-cyan-400 transition-colors">
+                  <a href="mailto:contact@aiot.tn" className="flex items-center gap-2">
+                    <Mail className="w-4 h-4" /> contact@aiot.tn
+                  </a>
+                </li>
+                <li className="hover:text-cyan-400 transition-colors">
+                  <a href="mailto:support@aiot.tn" className="flex items-center gap-2">
+                    <Headphones className="w-4 h-4" /> support@aiot.tn
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

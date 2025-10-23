@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef, ReactNode } from 'react';
-import { motion, useMotionValue, animate } from 'framer-motion';
+import { useState, useEffect, ReactNode } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface TeamCarouselProps {
   children: ReactNode[];
@@ -10,8 +10,7 @@ interface TeamCarouselProps {
 export default function TeamCarousel({ children }: TeamCarouselProps) {
   const [isMobile, setIsMobile] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
+  const [direction, setDirection] = useState(0);
 
   // Detect mobile devices
   useEffect(() => {
@@ -24,56 +23,42 @@ export default function TeamCarousel({ children }: TeamCarouselProps) {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Update current index based on drag position
-  useEffect(() => {
-    if (!isMobile) return;
+  // Touch handling
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
-    const unsubscribe = x.on('change', (latest) => {
-      // Each card is roughly 85% of screen width + gap
-      const containerWidth = window.innerWidth;
-      const cardWidth = containerWidth * 0.85;
-      const index = Math.round(-latest / (cardWidth + 32));
-      const clampedIndex = Math.max(0, Math.min(children.length - 1, index));
-
-      if (clampedIndex !== currentIndex) {
-        setCurrentIndex(clampedIndex);
-      }
-    });
-
-    return () => unsubscribe();
-  }, [x, currentIndex, children.length, isMobile]);
-
-  // Snap to nearest card on drag end
-  const handleDragEnd = () => {
-    if (!isMobile) return;
-
-    const containerWidth = window.innerWidth;
-    const cardWidth = containerWidth * 0.85;
-    const targetX = -currentIndex * (cardWidth + 32);
-
-    animate(x, targetX, {
-      type: 'spring',
-      stiffness: 400,
-      damping: 40,
-      mass: 0.5
-    });
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.touches[0].clientX);
   };
 
-  // Navigate to specific card via dot click
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe && currentIndex < children.length - 1) {
+      setDirection(1);
+      setCurrentIndex(currentIndex + 1);
+    }
+
+    if (isRightSwipe && currentIndex > 0) {
+      setDirection(-1);
+      setCurrentIndex(currentIndex - 1);
+    }
+
+    setTouchStart(0);
+    setTouchEnd(0);
+  };
+
   const goToCard = (index: number) => {
-    if (!isMobile) return;
-
+    setDirection(index > currentIndex ? 1 : -1);
     setCurrentIndex(index);
-    const containerWidth = window.innerWidth;
-    const cardWidth = containerWidth * 0.85;
-    const targetX = -index * (cardWidth + 32);
-
-    animate(x, targetX, {
-      type: 'spring',
-      stiffness: 400,
-      damping: 40,
-      mass: 0.5
-    });
   };
 
   // Desktop: Show grid layout
@@ -85,32 +70,54 @@ export default function TeamCarousel({ children }: TeamCarouselProps) {
     );
   }
 
-  // Mobile: Show swipeable carousel
+  // Mobile: Show simple slide carousel
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? '100%' : '-100%',
+      opacity: 0
+    }),
+    center: {
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => ({
+      x: direction > 0 ? '-100%' : '100%',
+      opacity: 0
+    })
+  };
+
   return (
-    <div className="relative w-full overflow-hidden" ref={containerRef}>
-      {/* Swipeable Container */}
-      <motion.div
-        className="flex gap-8"
-        style={{ x, paddingLeft: '7.5%', paddingRight: '7.5%' }}
-        drag="x"
-        dragElastic={0.1}
-        dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
-        dragConstraints={{
-          left: -(children.length - 1) * (window.innerWidth * 0.85 + 32),
-          right: 0
-        }}
-        onDragEnd={handleDragEnd}
+    <div
+      className="relative w-full overflow-hidden"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      {/* Carousel Container */}
+      <div
+        className="relative w-full"
+        style={{ minHeight: '500px' }}
       >
-        {children.map((child, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0"
-            style={{ width: '85vw', maxWidth: '400px' }}
+        <AnimatePresence initial={false} custom={direction} mode="wait">
+          <motion.div
+            key={currentIndex}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: "tween", duration: 0.3, ease: "easeInOut" },
+              opacity: { duration: 0.2 }
+            }}
+            className="absolute inset-0 flex items-center justify-center px-8"
           >
-            {child}
-          </div>
-        ))}
-      </motion.div>
+            <div className="w-full max-w-[400px] touch-pan-y">
+              {children[currentIndex]}
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
       {/* Pagination Dots */}
       <div className="flex justify-center gap-2 mt-8">

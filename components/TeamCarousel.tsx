@@ -53,8 +53,9 @@ export default function TeamCarousel({ children }: TeamCarouselProps) {
 
     animate(x, targetX, {
       type: 'spring',
-      stiffness: 300,
-      damping: 30
+      stiffness: 400,
+      damping: 40,
+      mass: 0.5
     });
   };
 
@@ -69,8 +70,9 @@ export default function TeamCarousel({ children }: TeamCarouselProps) {
 
     animate(x, targetX, {
       type: 'spring',
-      stiffness: 300,
-      damping: 30
+      stiffness: 400,
+      damping: 40,
+      mass: 0.5
     });
   };
 
@@ -91,8 +93,8 @@ export default function TeamCarousel({ children }: TeamCarouselProps) {
         className="flex gap-8"
         style={{ x, paddingLeft: '7.5%', paddingRight: '7.5%' }}
         drag="x"
-        dragElastic={0.2}
-        dragMomentum={false}
+        dragElastic={0.1}
+        dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         dragConstraints={{
           left: -(children.length - 1) * (window.innerWidth * 0.85 + 32),
           right: 0

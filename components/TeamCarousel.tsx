@@ -33,11 +33,13 @@ export default function TeamCarousel({ children }: TeamCarouselProps) {
   // Mobile: Use MobileCarousel with inCarousel prop
   return (
     <MobileCarousel>
-      {children.map((child, index) =>
-        isValidElement(child)
-          ? cloneElement(child, { ...child.props, inCarousel: true, key: index } as any)
-          : child
-      )}
+      {children.map((child, index) => {
+        if (isValidElement(child)) {
+          const props = { ...(child.props as object), inCarousel: true, key: index };
+          return cloneElement(child, props as Record<string, unknown>);
+        }
+        return child;
+      })}
     </MobileCarousel>
   );
 }

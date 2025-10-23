@@ -22,7 +22,7 @@ export default function MobileCarousel({ children }: MobileCarouselProps) {
     }
   };
 
-  const handleDragEnd = (e: any, { offset, velocity }: PanInfo) => {
+  const handleDragEnd = (_e: MouseEvent | TouchEvent | PointerEvent, { offset, velocity }: PanInfo) => {
     const swipe = swipePower(offset.x, velocity.x);
 
     if (swipe < -swipeConfidenceThreshold && currentIndex < children.length - 1) {

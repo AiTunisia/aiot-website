@@ -12,6 +12,7 @@ interface TeamCardProps {
   imageSrc: string;
   linkedinUrl: string;
   index: number;
+  inCarousel?: boolean;
 }
 
 export default function TeamCard({
@@ -20,7 +21,8 @@ export default function TeamCard({
   description,
   imageSrc,
   linkedinUrl,
-  index
+  index,
+  inCarousel = false
 }: TeamCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -77,9 +79,9 @@ export default function TeamCard({
   return (
     <motion.article
       ref={cardRef}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{
+      initial={inCarousel ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      animate={inCarousel ? { opacity: 1, y: 0 } : (isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 })}
+      transition={inCarousel ? { duration: 0 } : {
         duration: 0.5,
         delay: index * 0.1,
         ease: [0.4, 0, 0.2, 1]

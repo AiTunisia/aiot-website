@@ -616,7 +616,7 @@ export default function Home() {
                 {/* Download & CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <DownloadButton
-                    href="/application-e55fed1c-d466-468f-a18e-9b82cfeb0ee5.apk"
+                    href="https://github.com/AiTunisia/aiot-website/raw/main/public/application-e55fed1c-d466-468f-a18e-9b82cfeb0ee5.apk"
                     filename="RTDL-App.apk"
                   >
                     {t('rtdl.download.button')}

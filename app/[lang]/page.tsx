@@ -13,7 +13,8 @@ import RevealText from "../../components/RevealText";
 import LanguageSwitcher from "../../components/LanguageSwitcher";
 import TeamCard from "../../components/TeamCard";
 import TeamCarousel from "../../components/TeamCarousel";
-import { Heart, Pill, Wheat, Truck, Snowflake, Bot, Factory, Radio, BarChart3, Link, Rocket, Target, Lightbulb, Globe, Phone, MapPin, Mail, Headphones } from "lucide-react";
+import { Heart, Pill, Wheat, Truck, Snowflake, Bot, Factory, Radio, BarChart3, Link, Rocket, Target, Lightbulb, Globe, Phone, MapPin, Mail, Headphones, Download, Thermometer, Smartphone, CloudCog } from "lucide-react";
+import DownloadButton from "../../components/DownloadButton";
 
 // FAQ Accordion Item Component
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -195,7 +196,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <MagneticButton href="#prototype" variant="primary">
-                  {t('prototype.cta')}
+                  {t('rtdl.cta')}
                 </MagneticButton>
                 <MagneticButton href="#contact" variant="secondary">
                   {t('nav.contact')}
@@ -492,31 +493,140 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Prototype Highlight */}
+      {/* RTDL Product Showcase */}
       <section id="prototype" className="py-20 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute top-10 left-10 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-10 right-10 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          <AnimatedSection variant="scale">
-            <div className="text-center bg-white/80 backdrop-blur-md border-2 border-cyan-500/20 rounded-2xl p-12 shadow-xl">
-              <div className="inline-block px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full mb-6">
-                <span className="text-cyan-600 font-semibold text-sm flex items-center gap-2 justify-center"><Rocket className="w-4 h-4" /> {t('prototype.badge')}</span>
+          <AnimatedSection variant="fadeIn">
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+
+              {/* LEFT COLUMN - Video & Images */}
+              <div className="space-y-6">
+                {/* Video Embed */}
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                    {t('rtdl.video.title')}
+                  </h3>
+                  <div className="relative w-full aspect-video rounded-2xl overflow-hidden border-2 border-cyan-500/20 shadow-2xl">
+                    <iframe
+                      src="https://www.youtube-nocookie.com/embed/83fSWUDsKwU"
+                      title="RTDL Product Demonstration"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0 w-full h-full"
+                    />
+                  </div>
+                </div>
+
+                {/* Product Images Carousel */}
+                <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide pb-2">
+                  <Image
+                    src="/images/BOX.png"
+                    alt="RTDL Device Box"
+                    width={200}
+                    height={200}
+                    className="snap-center rounded-xl border border-gray-200 shadow-lg hover:scale-105 transition-transform duration-300"
+                  />
+                  <Image
+                    src="/images/WhatsApp Image 2025-11-26 at 10.51.00-Photoroom-portrait.png"
+                    alt="RTDL Device Portrait"
+                    width={200}
+                    height={200}
+                    className="snap-center rounded-xl border border-gray-200 shadow-lg hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
               </div>
-              <RevealText
-                as="h2"
-                className="text-4xl md:text-5xl font-bold text-[#1a2332] mb-6"
-                style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' } as React.CSSProperties}
-              >
-                {t('prototype.title')}
-              </RevealText>
-              <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8 text-justify">
-                {t('prototype.description')}
-              </p>
-              <MagneticButton href="#contact" variant="primary">
-                {t('prototype.cta')}
-              </MagneticButton>
+
+              {/* RIGHT COLUMN - Content & Features */}
+              <div className="space-y-8">
+                {/* Badge & Title */}
+                <div>
+                  <div className="inline-block px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full mb-4">
+                    <span className="text-cyan-600 font-semibold text-sm flex items-center gap-2">
+                      <Rocket className="w-4 h-4" /> {t('rtdl.badge')}
+                    </span>
+                  </div>
+                  <RevealText
+                    as="h2"
+                    className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a2332] mb-4"
+                    style={{ fontFamily: 'var(--font-space-grotesk), sans-serif' } as React.CSSProperties}
+                  >
+                    {t('rtdl.title')}
+                  </RevealText>
+                  <p className="text-lg text-cyan-600 font-medium mb-4">
+                    {t('rtdl.subtitle')}
+                  </p>
+                  <p className="text-gray-700 text-justify leading-relaxed">
+                    {t('rtdl.description')}
+                  </p>
+                </div>
+
+                {/* Key Features */}
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    {t('rtdl.features.title')}
+                  </h3>
+                  <StaggeredCards className="space-y-4">
+                    {[
+                      // Cold Chain Feature
+                      <div key="coldchain" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-6 shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-4 shadow-md">
+                          <Thermometer className="w-6 h-6 text-white" />
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-900 mb-2">
+                          {t('rtdl.features.coldChain.title')}
+                        </h4>
+                        <p className="text-gray-600 text-sm">
+                          {t('rtdl.features.coldChain.description')}
+                        </p>
+                      </div>,
+
+                      // Mobile App Feature
+                      <div key="mobile" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-6 shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-4 shadow-md">
+                          <Smartphone className="w-6 h-6 text-white" />
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-900 mb-2">
+                          {t('rtdl.features.mobileApp.title')}
+                        </h4>
+                        <p className="text-gray-600 text-sm">
+                          {t('rtdl.features.mobileApp.description')}
+                        </p>
+                      </div>,
+
+                      // Multi-Sector Feature
+                      <div key="multisector" className="bg-white/70 backdrop-blur-md border border-cyan-500/20 rounded-xl p-6 shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-4 shadow-md">
+                          <CloudCog className="w-6 h-6 text-white" />
+                        </div>
+                        <h4 className="text-lg font-bold text-gray-900 mb-2">
+                          {t('rtdl.features.multiSector.title')}
+                        </h4>
+                        <p className="text-gray-600 text-sm">
+                          {t('rtdl.features.multiSector.description')}
+                        </p>
+                      </div>,
+                    ]}
+                  </StaggeredCards>
+                </div>
+
+                {/* Download & CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <DownloadButton
+                    href="/application-e55fed1c-d466-468f-a18e-9b82cfeb0ee5.apk"
+                    filename="RTDL-App.apk"
+                  >
+                    {t('rtdl.download.button')}
+                  </DownloadButton>
+                  <MagneticButton href="#contact" variant="primary">
+                    {t('rtdl.cta')}
+                  </MagneticButton>
+                </div>
+              </div>
+
             </div>
           </AnimatedSection>
         </div>

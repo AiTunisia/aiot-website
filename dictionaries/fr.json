@@ -65,10 +65,33 @@
       "description": "Infrastructure de connectivité sécurisée et évolutive pour votre écosystème IoT"
     }
   },
-  "prototype": {
-    "badge": "En Développement",
-    "title": "Notre Premier Prototype de Produit",
-    "description": "Développement en cours de notre solution de surveillance IoT phare avec des applications réelles dans de multiples industries",
+  "rtdl": {
+    "badge": "Produit Phare",
+    "title": "RTDL - Real Time Data Logger",
+    "subtitle": "Sécurité de la Chaîne du Froid",
+    "description": "Le RTDL est notre solution IoT avancée pour la surveillance en temps réel de la chaîne du froid. Conçu pour les secteurs de la santé, de l'agriculture et de l'agroalimentaire, il combine capteurs universels, IA prédictive et plateforme cloud centralisée pour garantir la qualité et la sécurité de vos produits sensibles.",
+    "video": {
+      "title": "Démonstration du Produit"
+    },
+    "features": {
+      "title": "Fonctionnalités Principales",
+      "coldChain": {
+        "title": "Surveillance Chaîne du Froid",
+        "description": "Monitoring en temps réel de la température, de l'humidité et des performances des équipements de réfrigération avec alertes instantanées."
+      },
+      "mobileApp": {
+        "title": "Application Mobile Intuitive",
+        "description": "Tableau de bord complet, alertes push en temps réel, visualisation des données et rapports détaillés depuis votre smartphone."
+      },
+      "multiSector": {
+        "title": "Multi-Sectoriel",
+        "description": "Adapté aux secteurs de la santé (vaccins, médicaments), agriculture (stockage) et agroalimentaire (transport et conservation)."
+      }
+    },
+    "download": {
+      "button": "Télécharger APK",
+      "subtitle": "Version Android disponible"
+    },
     "cta": "Demander une Démo"
   },
   "about": {

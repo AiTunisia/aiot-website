@@ -65,10 +65,33 @@
       "description": "Secure, scalable connectivity infrastructure for your IoT ecosystem"
     }
   },
-  "prototype": {
-    "badge": "In Development",
-    "title": "Our First Product Prototype",
-    "description": "Currently developing our flagship IoT monitoring solution with real-world applications across multiple industries",
+  "rtdl": {
+    "badge": "Flagship Product",
+    "title": "RTDL - Real Time Data Logger",
+    "subtitle": "Cold Chain Security",
+    "description": "RTDL is our advanced IoT solution for real-time cold chain monitoring. Designed for healthcare, agriculture, and agrifood sectors, it combines universal sensors, predictive AI, and centralized cloud platform to ensure the quality and safety of your temperature-sensitive products.",
+    "video": {
+      "title": "Product Demonstration"
+    },
+    "features": {
+      "title": "Key Features",
+      "coldChain": {
+        "title": "Cold Chain Monitoring",
+        "description": "Real-time monitoring of temperature, humidity, and refrigeration equipment performance with instant alerts."
+      },
+      "mobileApp": {
+        "title": "Intuitive Mobile App",
+        "description": "Comprehensive dashboard, real-time push alerts, data visualization, and detailed reports from your smartphone."
+      },
+      "multiSector": {
+        "title": "Multi-Sector",
+        "description": "Suitable for healthcare (vaccines, medicines), agriculture (storage), and agrifood (transport and preservation) sectors."
+      }
+    },
+    "download": {
+      "button": "Download APK",
+      "subtitle": "Android version available"
+    },
     "cta": "Request a Demo"
   },
   "about": {

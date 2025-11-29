@@ -37,7 +37,9 @@ export default function AnimatedStatCounter({
   });
 
   const displayValue = useTransform(motionValue, (latest) => {
-    return Math.round(latest);
+    // Check if the target value has decimals
+    const hasDecimals = value % 1 !== 0;
+    return hasDecimals ? latest.toFixed(1) : Math.round(latest);
   });
 
   useEffect(() => {

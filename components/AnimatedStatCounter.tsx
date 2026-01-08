@@ -37,8 +37,18 @@ export default function AnimatedStatCounter({
   });
 
   const displayValue = useTransform(motionValue, (latest) => {
-    return Math.round(latest);
+    return latest;
   });
+
+  const [formattedValue, setFormattedValue] = useState(value % 1 !== 0 ? "0.0" : "0");
+
+  useEffect(() => {
+    const unsubscribe = displayValue.on("change", (latest) => {
+      const hasDecimals = value % 1 !== 0;
+      setFormattedValue(hasDecimals ? latest.toFixed(1) : Math.round(latest).toString());
+    });
+    return unsubscribe;
+  }, [displayValue, value]);
 
   useEffect(() => {
     if (isInView) {
@@ -74,7 +84,7 @@ export default function AnimatedStatCounter({
       <div className="mb-3">
         <motion.span className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-500 to-cyan-400 bg-clip-text text-transparent">
           {prefix}
-          {isInView ? <motion.span>{displayValue}</motion.span> : 0}
+          {isInView ? <motion.span>{formattedValue}</motion.span> : (value % 1 !== 0 ? "0.0" : "0")}
           {suffix}
         </motion.span>
       </div>

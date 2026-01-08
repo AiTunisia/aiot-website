@@ -175,7 +175,7 @@
       },
       
       "phone": "Numéro de Téléphone",
-      "phonePlaceholder": "+216 1 23 45 67 89",
+      "phonePlaceholder": "+216 26 645 070",
       "message": "Message",
       "messagePlaceholder": "Parlez-nous de votre projet ou de vos besoins...",
       "privacy": "J'accepte le traitement de mes données personnelles et accepte la politique de confidentialité",
@@ -198,7 +198,8 @@
     "contact": {
       "title": "Contact",
       "location": "Sousse, Tunisie",
-      "phone": "+216 92 214 755",
+      "phone": "+216 26 645 070",
+      "phoneLink": "tel:+21626645070",
       "email": "contact@aiot.tn"
     },
     "followUs": {

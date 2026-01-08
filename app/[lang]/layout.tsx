@@ -131,7 +131,7 @@ export default async function LocaleLayout({
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+216-92-214-755",
+      "telephone": "+21626645070",
       "contactType": "sales",
       "areaServed": ["TN", "DZ", "MA", "LY", "FR", "EU"],
       "availableLanguage": ["Arabic", "French", "English"]
@@ -155,7 +155,7 @@ export default async function LocaleLayout({
       "latitude": "35.8256",
       "longitude": "10.6369"
     },
-    "telephone": "+216-92-214-755",
+    "telephone": "+21626645070",
     "priceRange": "$$",
     "openingHours": "Mo-Fr 09:00-18:00"
   };
